@@ -23,7 +23,7 @@ def main():
     outputs = []
     for i in range(364):
         lista = archivo_excel.loc[i].values.flatten().tolist()
-        values = lista[:24]+lista[25:]
+        values = lista[1:24]+lista[25:]
         outputs.append(lista[24])
         file.write(str(values)[1:-1]+"\n")
     

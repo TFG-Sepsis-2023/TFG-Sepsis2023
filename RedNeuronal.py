@@ -1,24 +1,41 @@
-### IMPORTS
+### CLASES
 
-import random, math
+class RedNeuronal():
 
-### CALCULO REDES DE SALIDA
+    def __init__(self,nLayers=None,layers=[]):
 
-def sigmoide(x):
-    return (1/(1+math.exp(-x)))
+        self.nLayers = nLayers
+        self.layers = layers
+        
+    def __str__(self):
+        return "Red Neuronal (Número de capas = "+str(self.nLayers)+", Capas = "+str(self.layers)+")"
+        
+    
 
-def relu(x):
-    return max(0,x)
+class Layer():
 
-def umbral(x):
-    return 1 if x>0 else 0
+    def __init__(self,number,nodes=[]):
 
-def tanh(x):
-    return 2*sigmoide(2*x)-1
+        self.number = number
+        self.nodes = nodes
 
-### SOFTMAX
+    def __str__(self):
 
-def softmax(l):
-    lexp=[math.exp(x) for x in l]
-    deno=sum(lexp)
-    return [e/deno for e in lexp]
+        return "Capa (Numero = "+str(self.number)+", Nodos = "+str(self.nodes)+", Función de activación = "+str(self.function)+")"
+        
+
+class Node():
+
+    def __init__(self,name,layer=0,a=0,ini=None,ws=[],error=0):
+
+        self.name = name
+        self.layer = layer
+        self.a = a
+        self.ini = ini
+        self.ws = ws
+        self.error = error
+        
+    def __str__(self):
+
+        return "Nodo (Nombre = "+str(self.name)+", Capa = "+str(self.layer)+", Ini = "+str(self.ini)+", Pesos = "+str(self.ws)+", Error = "+str(self.error)+")"
+        
