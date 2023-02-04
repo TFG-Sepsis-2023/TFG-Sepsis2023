@@ -57,3 +57,13 @@ for node in Nodos2:
     node.ini = sum(node.ws[i]*Nodos1[i].a for i in range(len(Nodos1))) + 1
     node.a = FuncionesRedNeuronal.sigmoide(node.ini)
     
+#############################################################
+
+expectedOutputs = []
+
+### RETRO PROPAGACIÓN
+
+
+## FALTA FOR PARA TODOS LOS OUTPUTS
+for node in Nodos2:
+    node.error = FuncionesRedNeuronal.Derivadasigmoide(node.ini)*(expectedOutputs[])

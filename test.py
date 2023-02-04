@@ -31,7 +31,9 @@ def main():
 
     file = open('./Outputs.txt',"w")
     for out in outputs:
-        file.write(str(out)+"\n")
+        ceros = [0,0,0,0]
+        ceros[out-1]=1
+        file.write(str(ceros)[1:-1]+"\n")
     file.close()
 
 

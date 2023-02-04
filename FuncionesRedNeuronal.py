@@ -22,3 +22,8 @@ def softmax(l):
     lexp=[math.exp(x) for x in l]
     deno=sum(lexp)
     return [e/deno for e in lexp]
+
+### DERIVADAS
+
+def Derivadasigmoide(x):
+    return sigmoide(x)*(1-sigmoide(x))
