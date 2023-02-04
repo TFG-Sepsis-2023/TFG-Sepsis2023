@@ -1,4 +1,5 @@
 import pandas as pd
+import FuncionesRedNeuronal
 
 def main():
     file_name = 'C:/Users/aleja/Documents/Universidad/TFG/Dataset.xlsx'
@@ -39,4 +40,5 @@ def main():
 
 if __name__ == "__main__":
 
-    main()
+    for i in range(5,0,-1):
+        print(i)

@@ -26,13 +26,14 @@ class Layer():
 
 class Node():
 
-    def __init__(self,name,layer=0,a=0,ini=None,ws=[],error=0):
+    def __init__(self,name,layer=0,a=0,ini=None,ws=[],w0=1,error=0):
 
         self.name = name
         self.layer = layer
         self.a = a
         self.ini = ini
         self.ws = ws
+        self.w0 = w0
         self.error = error
         
     def __str__(self):
