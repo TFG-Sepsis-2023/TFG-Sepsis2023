@@ -6,22 +6,15 @@ red = RedNeuronal.RedNeuronal()
 
 ### ESTADÍSTICAS
 
-
 initNodes = 28
-hiddenNodes = 12
+hiddenNodes = 16
 endNodes = 4
 hiddenLayers = 1
 
 red.nLayers = 2+hiddenLayers
 nLayers = red.nLayers
 
-n = 0.1 # Tasa de aprendizaje
-
-
-lista_aux = [[1,2,3,2],[3,4,5,2],[1,0,2,3],[4,9,8,1]]
-nodos = []
-
-
+n = 0.35 # Tasa de aprendizaje
 
 ### CREACIÓN CAPAS
 
@@ -190,6 +183,16 @@ def calcAandINiSOLVE(entry):
 expectedOutputs = FuncionesRedNeuronal.loadOutPuts()
 inputs = FuncionesRedNeuronal.loadInPuts()
 
+def saveWeights():
+
+    file = open("./Pesos.txt","w")
+
+    for layer in red.layers:
+        for nodo in layer.nodes:
+            file.write(str(nodo.name)+" => "+str(nodo.ws)+"\n")
+
+    file.close()
+
 def main():
 
     createLayers()
@@ -203,6 +206,7 @@ def main():
         training(expectedOutputs[i])
     
     """
+    saveWeights()
     print(calcAandINiSOLVE([66,1,30.53,2,1,2,2,2,2,2,2,2,2,98.0,50,307,0.4,3,66,1,0.99,1,10,10,2,1,2,1]))
 
 
