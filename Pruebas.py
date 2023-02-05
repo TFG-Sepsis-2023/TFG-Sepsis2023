@@ -7,8 +7,8 @@ red = RedNeuronal.RedNeuronal()
 ### ESTADÍSTICAS
 
 
-initNodes = 4
-hiddenNodes = 4
+initNodes = 28
+hiddenNodes = 12
 endNodes = 4
 hiddenLayers = 1
 
@@ -194,7 +194,7 @@ def main():
 
     createLayers()
     initialWeights()
-    for i in range(1):
+    for i in range(360):
         calcAandINi(inputs[i])
         training(expectedOutputs[i])
     """
@@ -203,7 +203,7 @@ def main():
         training(expectedOutputs[i])
     
     """
-    print(calcAandINiSOLVE([66,1,1.36,1]))
+    print(calcAandINiSOLVE([66,1,30.53,2,1,2,2,2,2,2,2,2,2,98.0,50,307,0.4,3,66,1,0.99,1,10,10,2,1,2,1]))
 
 
 if __name__ == "__main__":
