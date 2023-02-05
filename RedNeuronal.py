@@ -21,7 +21,7 @@ class Layer():
 
     def __str__(self):
 
-        return "Capa (Numero = "+str(self.number)+", Nodos = "+str(self.nodes)+", Función de activación = "+str(self.function)+")"
+        return "Capa (Numero = "+str(self.number)+", Nodos = "+str(len(self.nodes))+")"
         
 
 class Node():

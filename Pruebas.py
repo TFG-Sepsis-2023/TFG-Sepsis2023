@@ -6,15 +6,16 @@ red = RedNeuronal.RedNeuronal()
 
 ### ESTADÍSTICAS
 
-red.nLayers = 3
-nLayers = red.nLayers
 
 initNodes = 4
-endNodes = 4
 hiddenNodes = 4
+endNodes = 4
 hiddenLayers = 1
 
-n = 0,1 # Tasa de aprendizaje
+red.nLayers = 2+hiddenLayers
+nLayers = red.nLayers
+
+n = 0.1 # Tasa de aprendizaje
 
 
 lista_aux = [[1,2,3,2],[3,4,5,2],[1,0,2,3],[4,9,8,1]]
@@ -32,37 +33,41 @@ def createLayers():
 
             ### CAPA INICIAL Tiene 4 NODOS
 
-            red.layers.append(RedNeuronal.Layer(layer))
-            layer = red.layers[layer]
+            layerObj = RedNeuronal.Layer(layer,[])
 
-            for i in range(1,5):
-                layer.nodes.append(RedNeuronal.Node(i,layer))
+            for i in range(1,initNodes+1):
+                layerObj.nodes.append(RedNeuronal.Node(i,layer))
+
+            red.layers.append(layerObj)
 
         elif layer==nLayers-1:
             
             ### CAPA FINAL Tiene 4 NODOS
 
-            red.layers.append(RedNeuronal.Layer(layer))
-            layer = red.layers[layer]
+            layerObj = RedNeuronal.Layer(layer, [])
 
-            for i in range(9,13):
-                layer.nodes.append(RedNeuronal.Node(i,layer))
+            for i in range(initNodes+hiddenNodes+1,initNodes+hiddenNodes+endNodes+1):
+                layerObj.nodes.append(RedNeuronal.Node(i,layer))
+
+            red.layers.append(layerObj)
 
         else:
             ### CAPA OCULTA Tiene 4 NODOS
 
-            red.layers.append(RedNeuronal.Layer(layer))
-            layer = red.layers[layer]
+            layerObj = RedNeuronal.Layer(layer,[])
 
-            for i in range(5,9):
-                layer.nodes.append(RedNeuronal.Node(i,layer))
+            for i in range(initNodes+1,initNodes+hiddenNodes+1):
+                layerObj.nodes.append(RedNeuronal.Node(i,layer))
+            
+            red.layers.append(layerObj)
+
 
 
 ### CREACIÓN DE PESOS INICIALES 
 
 def initialWeights():
 
-    for i in range(nLayers,0,-1):
+    for i in range(nLayers-1,0,-1):
         Nodos0 = red.layers[i-1].nodes
         Nodos1 = red.layers[i].nodes
 
@@ -74,17 +79,19 @@ def initialWeights():
 
 def calcAandINi(entry):
 
-    for layer in nLayers:
+    for layer in range(nLayers):
 
         if layer == 0:
+            
+            Nodos0 = red.layers[layer].nodes
 
-            for i in range(len(red.layers[layer])):
-                node.a = entry[i]
+            for i in range(len(Nodos0)):
+                Nodos0[i].a= entry[i]
 
         elif layer == nLayers-1:
 
-            Nodos0 = red.layers[layer-1]
-            Nodos1 = red.layers[layer]
+            Nodos0 = red.layers[layer-1].nodes
+            Nodos1 = red.layers[layer].nodes
 
             for node in Nodos1:
                 node.ini = sum(node.ws[i]*Nodos0[i].a for i in range(len(Nodos0))) + 1
@@ -92,8 +99,8 @@ def calcAandINi(entry):
 
         else:
 
-            Nodos0 = red.layers[layer-1]
-            Nodos1 = red.layers[layer]
+            Nodos0 = red.layers[layer-1].nodes
+            Nodos1 = red.layers[layer].nodes
 
             for node in Nodos1:
                 node.ini = sum(node.ws[i]*Nodos0[i].a for i in range(len(Nodos0))) + 1
@@ -109,16 +116,17 @@ def training(output):
 
         if layer == 0:
             
-            Nodos0 = red.layers[layer]
+            Nodos0 = red.layers[layer].nodes
+            Nodos1 = red.layers[layer+1].nodes
             for j in range(len(Nodos0)):
                 node = Nodos0[j]
                 for index in range(len(Nodos1)):
-                    node2 = Nodos2[index]
+                    node2 = Nodos1[index]
                     node2.ws[j]= node2.ws[j] + n*node.a*node2.error
 
         elif layer == nLayers-1:
 
-            Nodos2 = red.layers[layer]
+            Nodos2 = red.layers[layer].nodes
 
             for j in range(len(Nodos2)):
                 node = Nodos2[j]
@@ -127,12 +135,12 @@ def training(output):
 
         else:
 
-            Nodos2 = red.layers[layer+1]
-            Nodos1 = red.layers[layer]
+            Nodos2 = red.layers[layer+1].nodes
+            Nodos1 = red.layers[layer].nodes
 
             for j in range(len(Nodos1)):
                 node = Nodos1[j]
-                node.error = FuncionesRedNeuronal.DerivadaRelu(node.ini)*(output[j]-node.a)
+                node.error = FuncionesRedNeuronal.DerivadaRelu(node.ini)*sum(node3.ws[j]*node3.a for node3 in Nodos2)
                 node.w0 = node.w0+n*node.a*node.error
                 for index in range(len(Nodos2)):
                     node2 = Nodos2[index]
@@ -145,51 +153,54 @@ def calcAandINiSOLVE(entry):
 
     solve = []
 
-    for layer in nLayers:
+    for layer in range(nLayers):
 
         if layer == 0:
+            
+            Nodos0 = red.layers[layer].nodes
 
-            for i in range(len(red.layers[layer])):
-                node.a = entry[i]
+            for i in range(len(Nodos0)):
+                Nodos0[i].a= entry[i]
 
         elif layer == nLayers-1:
 
-            Nodos0 = red.layers[layer-1]
-            Nodos1 = red.layers[layer]
+            Nodos0 = red.layers[layer-1].nodes
+            Nodos1 = red.layers[layer].nodes
 
             for node in Nodos1:
                 node.ini = sum(node.ws[i]*Nodos0[i].a for i in range(len(Nodos0))) + 1
                 node.a = FuncionesRedNeuronal.sigmoide(node.ini)
                 solve.append(node.ini)
 
-
         else:
 
-            Nodos0 = red.layers[layer-1]
-            Nodos1 = red.layers[layer]
+            Nodos0 = red.layers[layer-1].nodes
+            Nodos1 = red.layers[layer].nodes
 
             for node in Nodos1:
                 node.ini = sum(node.ws[i]*Nodos0[i].a for i in range(len(Nodos0))) + 1
                 node.a = FuncionesRedNeuronal.relu(node.ini)
 
     print(FuncionesRedNeuronal.softmax(solve))
+    return max(enumerate(FuncionesRedNeuronal.softmax(solve)),key=lambda x:x[1])[0]+1
 
 expectedOutputs = FuncionesRedNeuronal.loadOutPuts()
+inputs = FuncionesRedNeuronal.loadInPuts()
 
 def main():
 
     createLayers()
     initialWeights()
-    """
-    for i in range(364):
-        calcAandINi(lista_aux[i])
+    for i in range(2):
+        calcAandINi(inputs[i])
         training(expectedOutputs[i])
+    """
     for i in range(3):
         calcAandINi(lista_aux[i])
         training(expectedOutputs[i])
     
-    calcAandINiSOLVE([0,0,0,1])
     """
+    print(calcAandINiSOLVE([66,1,1.36,2,1,2,2,2,2,2,2,2,2,69.0,29,256,1.1,15,67,2,0.72,1,3,2,2,1,2,3]))
 
 
 if __name__ == "__main__":

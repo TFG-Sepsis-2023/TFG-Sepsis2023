@@ -19,6 +19,7 @@ def tanh(x):
 ### SOFTMAX
 
 def softmax(l):
+    
     lexp=[math.exp(x) for x in l]
     deno=sum(lexp)
     return [e/deno for e in lexp]
@@ -41,5 +42,15 @@ def loadOutPuts():
     for line in file:
         line = line[:-1].split(',')
         lista.append(list(int(num) for num in line))
+
+    return lista
+
+def loadInPuts():
+    lista = []
+    file = open("./DatosEntrada.txt",'r')
+    
+    for line in file:
+        line = line[:-1].split(',')
+        lista.append(list(float(num) for num in line))
 
     return lista
