@@ -169,6 +169,7 @@ def calcAandINiSOLVE(entry):
 
             for node in Nodos1:
                 node.ini = sum(node.ws[i]*Nodos0[i].a for i in range(len(Nodos0))) + 1
+                print("Sigmoide:",node.ini)
                 node.a = FuncionesRedNeuronal.sigmoide(node.ini)
                 solve.append(node.ini)
 
@@ -181,8 +182,10 @@ def calcAandINiSOLVE(entry):
                 node.ini = sum(node.ws[i]*Nodos0[i].a for i in range(len(Nodos0))) + 1
                 node.a = FuncionesRedNeuronal.relu(node.ini)
 
-    print(FuncionesRedNeuronal.softmax(solve))
-    return max(enumerate(FuncionesRedNeuronal.softmax(solve)),key=lambda x:x[1])[0]+1
+    print(solve)
+    sol = FuncionesRedNeuronal.softmax(solve)
+    print(sol)
+    return max(enumerate(sol),key=lambda x:x[1])[0]+1
 
 expectedOutputs = FuncionesRedNeuronal.loadOutPuts()
 inputs = FuncionesRedNeuronal.loadInPuts()
@@ -191,7 +194,7 @@ def main():
 
     createLayers()
     initialWeights()
-    for i in range(2):
+    for i in range(1):
         calcAandINi(inputs[i])
         training(expectedOutputs[i])
     """
@@ -200,7 +203,7 @@ def main():
         training(expectedOutputs[i])
     
     """
-    print(calcAandINiSOLVE([66,1,1.36,2,1,2,2,2,2,2,2,2,2,69.0,29,256,1.1,15,67,2,0.72,1,3,2,2,1,2,3]))
+    print(calcAandINiSOLVE([66,1,1.36,1]))
 
 
 if __name__ == "__main__":

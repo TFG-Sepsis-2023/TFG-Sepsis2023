@@ -1,11 +1,14 @@
 ### IMPORTS
 
 import random, math
+from mpmath import mp
+
 
 ### CALCULO REDES DE SALIDA
 
 def sigmoide(x):
-    return (1/(1+math.exp(-x)))
+    
+    return (1/(1+mp.exp(-x)))
 
 def relu(x):
     return max(0,x)
@@ -20,7 +23,7 @@ def tanh(x):
 
 def softmax(l):
     
-    lexp=[math.exp(x) for x in l]
+    lexp=[mp.exp(x) for x in l]
     deno=sum(lexp)
     return [e/deno for e in lexp]
 
