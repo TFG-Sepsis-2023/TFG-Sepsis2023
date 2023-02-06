@@ -124,7 +124,7 @@ def training(output):
             for j in range(len(Nodos2)):
                 node = Nodos2[j]
                 node.error = FuncionesRedNeuronal.DerivadaSigmoide(node.ini)*(output[j]-node.a)
-                node.w0 = node.w0+n*node.a*node.error
+                node.w0 = node.w0+n*node.error
 
         else:
 
@@ -133,8 +133,8 @@ def training(output):
 
             for j in range(len(Nodos1)):
                 node = Nodos1[j]
-                node.error = FuncionesRedNeuronal.DerivadaRelu(node.ini)*sum(node3.ws[j]*node3.a for node3 in Nodos2)
-                node.w0 = node.w0+n*node.a*node.error
+                node.error = FuncionesRedNeuronal.DerivadaRelu(node.ini)*sum(node3.ws[j]*node3.error for node3 in Nodos2)
+                node.w0 = node.w0+n*node.error
                 for index in range(len(Nodos2)):
                     node2 = Nodos2[index]
                     node2.ws[j]= node2.ws[j] + n*node.a*node2.error
@@ -207,7 +207,7 @@ def main():
     
     """
     saveWeights()
-    print(calcAandINiSOLVE([66,1,30.53,2,1,2,2,2,2,2,2,2,2,98.0,50,307,0.4,3,66,1,0.99,1,10,10,2,1,2,1]))
+    print(calcAandINiSOLVE([50,1,39.21,2,1,1,1,1,1,2,2,2,2,73.0,21,237,0.3,15,63,2,0.71,1,2,3,2,1,1,1]))
 
 
 if __name__ == "__main__":
