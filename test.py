@@ -1,5 +1,5 @@
 import pandas as pd
-import FuncionesRedNeuronal
+import RedNeural.FuncionesRedNeuronal as FuncionesRedNeuronal
 
 def main():
     file_name = 'C:/Users/aleja/Documents/Universidad/TFG/Dataset.xlsx'

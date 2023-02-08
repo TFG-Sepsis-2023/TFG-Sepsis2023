@@ -1,0 +1,59 @@
+
+Tipo de aprendizaje: supervisado 
+
+Paradigma: Aprendizaje inductivo
+
+Algoritmo ID3:
+
+    Clasificados por entropía (PRIMER NODO)
+        Entropía(D)= -|P|/|D|*log2(|P|/|D|)-|N|/|D|*log2(|N|/|D|)
+
+    Siguientes clasificados por GANANCIA
+        GANANCIA(D,A) = Entropía(D) - sum(|Dv|/|D|*Entropía(Dv))
+
+
+COLUMNAS DIVIDIDAS:
+
+    EDADES: 0
+        >40)
+        [40-60)
+        [60-80)
+        [80<
+    
+    INITIAL PCT VALUE: 2
+        <50
+
+    RESPIRATION ARTERIAL: 13 
+        <50
+        50<100
+        100<
+    
+    RESPIRATION FRACTION: 14
+        <50
+        50<100
+        100<
+
+    PALTELETS: 15
+        <100
+        100<200
+        200<
+
+    BILIRRUBINA: 16
+        <1
+
+    GCS: 17 
+        <10
+
+    MAP: 18
+        <50)
+        50<
+
+    CREATINE: 20 
+        <1
+        1<2)
+        2<
+
+    SOFA: 22
+        <5
+        5<10
+        10>
