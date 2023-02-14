@@ -54,8 +54,7 @@ def loadOutPutsExtentInfection():
     file = open("./outputs/extentInfectionBinary.txt",'r')
     
     for line in file:
-        line = line[:-1].split(',')
-        lista.append(list(int(num) for num in line))
+        lista.append(int(float(str(line)[:-1])))
 
     return lista
 
