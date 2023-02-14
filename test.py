@@ -2,18 +2,12 @@ import pandas as pd
 import RedNeural.FuncionesRedNeuronal as FuncionesRedNeuronal
 
 def main():
-    file_name = 'C:/Users/aleja/Documents/Universidad/TFG/Dataset.xlsx'
-
-    archivo_excel = pd.read_excel(file_name, skiprows=range(1,2))
-    #print(archivo_excel.columns)
-
-    file = open('./DatosEntrada.txt',"w")
+    
 
     """
     values = archivo_excel['Age'].values
     print(values)
 
-    """
     columnas = ['Age', 'Sex', 'DM']
     df_seleccionados = archivo_excel[columnas]
     
@@ -24,22 +18,49 @@ def main():
     outputs = []
     for i in range(364):
         lista = archivo_excel.loc[i].values.flatten().tolist()
-        values = lista[1:24]+lista[25:]
+        values = lista[1:24]
         outputs.append(lista[24])
         file.write(str(values)[1:-1]+"\n")
     
     file.close()
 
-    file = open('./Outputs.txt',"w")
-    for out in outputs:
-        ceros = [0,0,0,0]
-        ceros[out-1]=1
-        file.write(str(ceros)[1:-1]+"\n")
-    file.close()
+    """
+'''
+
+    '''
 
 
 if __name__ == "__main__":
 
-    ls = [66,1,1.36,2,1,2,2,2,2,2,2,2,2,69.0,29,256,1.1,15,67,2,0.72,1,3,2,2,1,2,3]
-    print(len(ls))
-    print(ls[27])
+    outputsList = []
+
+    with open('./datos/data.csv','r') as f:
+        next(f)
+        for line in f:
+            outputsList.append([float(num) for num in str(line)[:-1].split(',')][23:])
+
+
+    survival = open('./outputs/survivalBinary.txt','w')
+    microOrg = open('./outputs/microOrg6OUTS.txt','w')
+    extendInf = open('./outputs/extentInfectionBinary.txt','w')
+    anatomicalSite = open('./outputs/anatomicalSite7OUTS.txt','w')
+
+    for output in outputsList:
+
+        survival.write(str(output[-1])+"\n")
+
+        extendInf.write(str(output[-3])+"\n")
+
+        MO = [0,0,0,0,0,0]
+        AS = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+
+        MO[int(output[-2])-1]=1
+
+        microOrg.write(str(MO)[1:-1]+"\n")
+
+        AS[int(output[-4])-1]=1
+
+        anatomicalSite.write(str(AS)[1:-1]+"\n")
+
+
+    #print(len(FuncionesRedNeuronal.loadInPuts()[0]))

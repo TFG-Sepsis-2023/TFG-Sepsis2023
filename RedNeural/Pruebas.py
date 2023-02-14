@@ -6,7 +6,7 @@ red = RedNeuronal.RedNeuronal()
 
 ### ESTADÍSTICAS
 
-initNodes = 28
+initNodes = 23
 hiddenNodes = 16
 endNodes = 4
 hiddenLayers = 1
@@ -162,7 +162,6 @@ def calcAandINiSOLVE(entry):
 
             for node in Nodos1:
                 node.ini = sum(node.ws[i]*Nodos0[i].a for i in range(len(Nodos0))) + 1
-                print("Sigmoide:",node.ini)
                 node.a = FuncionesRedNeuronal.sigmoide(node.ini)
                 solve.append(node.ini)
 
@@ -207,7 +206,7 @@ def main():
     
     """
     saveWeights()
-    print(calcAandINiSOLVE([50,1,39.21,2,1,1,1,1,1,2,2,2,2,73.0,21,237,0.3,15,63,2,0.71,1,2,3,2,1,1,1]))
+    print(calcAandINiSOLVE([50,1,39.21,2,1,1,1,1,1,2,2,2,2,73.0,21,237,0.3,15,63,2,0.71,1,2]))
 
 
 if __name__ == "__main__":

@@ -50,10 +50,10 @@ def loadOutPuts():
 
 def loadInPuts():
     lista = []
-    file = open("./DatosEntrada.txt",'r')
     
-    for line in file:
-        line = line[:-1].split(',')
-        lista.append(list(float(num) for num in line))
+    with open("./datos/data.csv",'r') as f:
+        next(f)
+        for line in f:
+            lista.append([float(num) for num in str(line)[:-1].split(',')][:23])
 
     return lista

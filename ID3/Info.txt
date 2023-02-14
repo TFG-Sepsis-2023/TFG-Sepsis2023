@@ -15,7 +15,7 @@ Algoritmo ID3:
 COLUMNAS DIVIDIDAS:
 
     EDADES: 0
-        >40)
+        <40)
         [40-60)
         [60-80)
         [80<

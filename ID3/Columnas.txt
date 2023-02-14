@@ -1,30 +1,40 @@
-ID
-Age
-Sex
-Initial PCT value
-DM
-HTN
-COPD
-CAD
-CHF
-CKD w/o dialysis 
-CKD w dialysis
-afib 
-PE
-cancer 
-Respiration
-Unnamed: 15
-Platelets
-Bilirubin
-GCS
-MAP
-Vasopressors
-Creatinine
-UOP
-SOFA score
-Outcome
-LOS
-Mechanical vent
-Anatomical site of infection 
-Extent of infection
-Microorganism 
+Age<40;None;40;['SI','NO'];0
+Age40-60;40;60;['SI','NO'];0
+Age60-80;60;80;['SI','NO'];0
+Age80<;80;None;['SI','NO'];0
+Sex;None;None;[1,2];1
+PCT;None;50;['SI','NO'];2
+DM;None;None;[1,2];3
+HTN;None;None;[1,2];4
+COPD;None;None;[1,2];5
+CAD;None;None;[1,2];6
+CHF;None;None;[1,2];7
+CKD w/o dialysis;None;None;[1,2];8
+CKD w dialysis;None;None;[1,2];9
+afib;None;None;[1,2];10
+PE;None;None;[1,2];11
+cancer;None;None;[1,2];12
+RespArterial<50;None;50;['SI','NO'];13
+RespArterial50-100;50;100;['SI','NO'];13
+RespArterial100<;100;None;['SI','NO'];13
+RespFraction<50;None;50;['SI','NO'];14
+RespFraction50-100;50;100;['SI','NO'];14
+RespFraction100<;100;None;['SI','NO'];14
+Palets<100;None;100;['SI','NO'];15
+Palets100-200;100;200;['SI','NO'];15
+Palets200<;200;None;['SI','NO'];15
+Bilirubin;None;1;['SI','NO'];16
+GCS;None;10;['SI','NO'];17
+Map<50;None;50;['SI','NO'];18
+Map50<;50;None;['SI','NO'];18
+Vasopressors;None;None;[1,2];19
+Creatine<1;None;1;['SI','NO'];20
+Creatine1-2;1;2;['SI','NO'];20
+Creatine2<;2;None;['SI','NO'];20
+UOP;None;None;[1,2,3];21
+Sofa<5;None;5;['SI','NO'];22
+Sofa5-10;5;10;['SI','NO'];22
+Sofa10<;10;None;['SI','NO'];22
+Anatomical site of infection;None;None;[1,2,3,4,5,6,7];25 
+Extent of infection;None;None;[1,2];26
+Microorganism;None;None;[1,2,3,4];27
