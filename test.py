@@ -32,6 +32,11 @@ def main():
 
 if __name__ == "__main__":
 
+        
+    for i in range(3,0,-1):
+        print(i)
+        
+        '''
     outputsList = []
 
     with open('./datos/data.csv','r') as f:
@@ -47,6 +52,9 @@ if __name__ == "__main__":
 
     for output in outputsList:
 
+        
+
+
         survival.write(str(output[-1])+"\n")
 
         extendInf.write(str(output[-3])+"\n")
@@ -61,6 +69,6 @@ if __name__ == "__main__":
         AS[int(output[-4])-1]=1
 
         anatomicalSite.write(str(AS)[1:-1]+"\n")
-
+'''
 
     #print(len(FuncionesRedNeuronal.loadInPuts()[0]))

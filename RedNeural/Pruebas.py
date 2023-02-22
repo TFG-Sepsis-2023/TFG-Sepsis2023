@@ -4,17 +4,22 @@ import FuncionesRedNeuronal,RedNeuronal,random
 
 red = RedNeuronal.RedNeuronal()
 
+### DATOS
+
+expectedOutputs = FuncionesRedNeuronal.loadOutPuts()
+inputs = FuncionesRedNeuronal.loadInPuts()
+
 ### ESTADÍSTICAS
 
-initNodes = 23
-hiddenNodes = 16
+initNodes = len(inputs[0])
+hiddenNodes = 4
 endNodes = 4
 hiddenLayers = 1
 
 red.nLayers = 2+hiddenLayers
 nLayers = red.nLayers
 
-n = 0.35 # Tasa de aprendizaje
+n = 0.1 # Tasa de aprendizaje
 
 ### CREACIÓN CAPAS
 
@@ -28,7 +33,7 @@ def createLayers():
 
             layerObj = RedNeuronal.Layer(layer,[])
 
-            for i in range(1,initNodes+1):
+            for i in range(0,initNodes):
                 layerObj.nodes.append(RedNeuronal.Node(i,layer))
 
             red.layers.append(layerObj)
@@ -39,7 +44,7 @@ def createLayers():
 
             layerObj = RedNeuronal.Layer(layer, [])
 
-            for i in range(initNodes+hiddenNodes+1,initNodes+hiddenNodes+endNodes+1):
+            for i in range(0,endNodes):
                 layerObj.nodes.append(RedNeuronal.Node(i,layer))
 
             red.layers.append(layerObj)
@@ -49,7 +54,7 @@ def createLayers():
 
             layerObj = RedNeuronal.Layer(layer,[])
 
-            for i in range(initNodes+1,initNodes+hiddenNodes+1):
+            for i in range(0,hiddenNodes):
                 layerObj.nodes.append(RedNeuronal.Node(i,layer))
             
             red.layers.append(layerObj)
@@ -64,8 +69,13 @@ def initialWeights():
         Nodos0 = red.layers[i-1].nodes
         Nodos1 = red.layers[i].nodes
 
+
         for node in Nodos1:
             node.ws = [random.uniform(-1,1) for _ in range(len(Nodos0))]
+
+    for layer in red.layers:
+        for node in layer.nodes:
+            node.w0 = random.uniform(-1,1)
 
 
 ### CALCULOS DE a Y INi
@@ -87,7 +97,7 @@ def calcAandINi(entry):
             Nodos1 = red.layers[layer].nodes
 
             for node in Nodos1:
-                node.ini = sum(node.ws[i]*Nodos0[i].a for i in range(len(Nodos0))) + 1
+                node.ini = sum(node.ws[i]*Nodos0[i].a for i in range(len(Nodos0))) + node.w0
                 node.a = FuncionesRedNeuronal.sigmoide(node.ini)
 
         else:
@@ -96,14 +106,14 @@ def calcAandINi(entry):
             Nodos1 = red.layers[layer].nodes
 
             for node in Nodos1:
-                node.ini = sum(node.ws[i]*Nodos0[i].a for i in range(len(Nodos0))) + 1
+                node.ini = sum(node.ws[i]*Nodos0[i].a for i in range(len(Nodos0))) + node.w0
                 node.a = FuncionesRedNeuronal.relu(node.ini)
 
 #############################################################
 
 ### RETRO PROPAGACIÓN
 
-def training(output):
+def retroprop(output):
 
     for layer in range(nLayers-1,-1,-1):
 
@@ -161,7 +171,7 @@ def calcAandINiSOLVE(entry):
             Nodos1 = red.layers[layer].nodes
 
             for node in Nodos1:
-                node.ini = sum(node.ws[i]*Nodos0[i].a for i in range(len(Nodos0))) + 1
+                node.ini = sum(node.ws[i]*Nodos0[i].a for i in range(len(Nodos0))) + node.w0
                 node.a = FuncionesRedNeuronal.sigmoide(node.ini)
                 solve.append(node.ini)
 
@@ -171,7 +181,7 @@ def calcAandINiSOLVE(entry):
             Nodos1 = red.layers[layer].nodes
 
             for node in Nodos1:
-                node.ini = sum(node.ws[i]*Nodos0[i].a for i in range(len(Nodos0))) + 1
+                node.ini = sum(node.ws[i]*Nodos0[i].a for i in range(len(Nodos0))) + node.w0
                 node.a = FuncionesRedNeuronal.relu(node.ini)
 
     print(solve)
@@ -179,8 +189,7 @@ def calcAandINiSOLVE(entry):
     print(sol)
     return max(enumerate(sol),key=lambda x:x[1])[0]+1
 
-expectedOutputs = FuncionesRedNeuronal.loadOutPuts()
-inputs = FuncionesRedNeuronal.loadInPuts()
+
 
 def saveWeights():
 
@@ -192,21 +201,67 @@ def saveWeights():
 
     file.close()
 
+def training(inputs, outputs, tasa, n_epochs=50):
+
+    for _ in range(n_epochs):
+
+        conjunto = list(zip(inputs,outputs))
+        random.shuffle(conjunto)
+
+        entries = []
+        outs = []
+        for i,j in conjunto:
+            entries.append(i)
+            outs.append(j)
+
+        for i in range(20):
+            calcAandINi(entries[i])
+            retroprop(outs[i])
+
+
+    return None
+
+def rendimiento(inputs,outputs):
+
+    total = 0
+    aciertos = 0
+
+    conjunto = list(zip(inputs,outputs))
+    random.shuffle(conjunto)
+
+    entries = []
+    outs = []
+    for i,j in conjunto:
+        entries.append(i)
+        outs.append(j)
+
+    for i in range(10):
+
+        total += 1
+
+        res = calcAandINiSOLVE(entries[i])
+
+        expect = outs[i].index(1)+1       
+
+        print(res,expect)
+
+        if res == expect: aciertos+=1
+
+    return print('Porcentaje de aciertos:',aciertos*100/total,'%')
+
+
 def main():
 
     createLayers()
     initialWeights()
-    for i in range(360):
-        calcAandINi(inputs[i])
-        training(expectedOutputs[i])
-    """
-    for i in range(3):
-        calcAandINi(lista_aux[i])
-        training(expectedOutputs[i])
-    
-    """
-    saveWeights()
-    print(calcAandINiSOLVE([50,1,39.21,2,1,1,1,1,1,2,2,2,2,73.0,21,237,0.3,15,63,2,0.71,1,2]))
+
+
+    #training(inputs,expectedOutputs,0,1)
+
+    print('Fin del entrenamiento')
+
+    rendimiento(inputs,expectedOutputs)
+
 
 
 if __name__ == "__main__":

@@ -30,7 +30,7 @@ def softmax(l):
 ### DERIVADAS
 
 def DerivadaSigmoide(x):
-    return sigmoide(x)*(1-sigmoide(x))
+    return x*(1-x)
 
 def DerivadaRelu(x):
     return 1 if x>0 else 0
@@ -40,7 +40,7 @@ def DerivadaRelu(x):
 def loadOutPuts():
 
     lista = []
-    file = open("./Outputs.txt",'r')
+    file = open("./outputs/outcome4OUTPUTS.txt",'r')
     
     for line in file:
         line = line[:-1].split(',')
