@@ -32,43 +32,36 @@ def main():
 
 if __name__ == "__main__":
 
-        
-    for i in range(3,0,-1):
-        print(i)
-        
-        '''
-    outputsList = []
+    ls = [71,2,0.07,2,1,1,1,2,2,2,1,2,1,236,100,224,0.3,15,110,0,0.7,1,2,5,1,8,2,6,1]
 
+    print(ls)
+    # SOFA score 22
+    # VASOPRESSOR 19
+    # SURVIVAL 28
+
+    vasopresosrs = []
+    sofas = []
+
+    file = open('./datos/dataParsed.csv','w')
     with open('./datos/data.csv','r') as f:
+
         next(f)
         for line in f:
-            outputsList.append([float(num) for num in str(line)[:-1].split(',')][23:])
+
+            line = str(line).split(',')
+            line = [float(num) for num in line]
+
+            del line[28]
+            del line[22]
+            del line[19]
+
+            file.write(str(line)[1:-1]+"\n")
 
 
-    survival = open('./outputs/survivalBinary.txt','w')
-    microOrg = open('./outputs/microOrg6OUTS.txt','w')
-    extendInf = open('./outputs/extentInfectionBinary.txt','w')
-    anatomicalSite = open('./outputs/anatomicalSite7OUTS.txt','w')
 
-    for output in outputsList:
-
-        
+    for i in vasopresosrs:
+        file.write(str(i)+'\n')
 
 
-        survival.write(str(output[-1])+"\n")
 
-        extendInf.write(str(output[-3])+"\n")
-
-        MO = [0,0,0,0,0,0]
-        AS = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-
-        MO[int(output[-2])-1]=1
-
-        microOrg.write(str(MO)[1:-1]+"\n")
-
-        AS[int(output[-4])-1]=1
-
-        anatomicalSite.write(str(AS)[1:-1]+"\n")
-'''
-
-    #print(len(FuncionesRedNeuronal.loadInPuts()[0]))
+    

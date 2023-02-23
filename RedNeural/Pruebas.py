@@ -2,7 +2,7 @@ import FuncionesRedNeuronal,RedNeuronal,random
 
 ### RED NEURONAL
 
-red = RedNeuronal.RedNeuronal()
+red = RedNeuronal.RedNeuronal(0,[])
 
 ### DATOS
 
@@ -11,9 +11,9 @@ inputs = FuncionesRedNeuronal.loadInPuts()
 
 ### ESTADÍSTICAS
 
-initNodes = len(inputs[0])
-hiddenNodes = 4
-endNodes = 4
+initNodes = 4
+hiddenNodes = 2
+endNodes = 3
 hiddenLayers = 1
 
 red.nLayers = 2+hiddenLayers
@@ -29,12 +29,12 @@ def createLayers():
 
         if layer == 0:
 
-            ### CAPA INICIAL Tiene 4 NODOS
+            ### CAPA INICIAL
 
             layerObj = RedNeuronal.Layer(layer,[])
 
             for i in range(0,initNodes):
-                layerObj.nodes.append(RedNeuronal.Node(i,layer))
+                layerObj.nodes.append(RedNeuronal.Node(i,layer,0,0,[],0,0))
 
             red.layers.append(layerObj)
 
@@ -45,7 +45,7 @@ def createLayers():
             layerObj = RedNeuronal.Layer(layer, [])
 
             for i in range(0,endNodes):
-                layerObj.nodes.append(RedNeuronal.Node(i,layer))
+                layerObj.nodes.append(RedNeuronal.Node(i,layer,0,0,[],0,0))
 
             red.layers.append(layerObj)
 
@@ -55,7 +55,7 @@ def createLayers():
             layerObj = RedNeuronal.Layer(layer,[])
 
             for i in range(0,hiddenNodes):
-                layerObj.nodes.append(RedNeuronal.Node(i,layer))
+                layerObj.nodes.append(RedNeuronal.Node(i,layer,0,0,[],0,0))
             
             red.layers.append(layerObj)
 
@@ -163,7 +163,7 @@ def calcAandINiSOLVE(entry):
             Nodos0 = red.layers[layer].nodes
 
             for i in range(len(Nodos0)):
-                Nodos0[i].a= entry[i]
+                Nodos0[i].a = entry[i]
 
         elif layer == nLayers-1:
 
@@ -255,12 +255,30 @@ def main():
     createLayers()
     initialWeights()
 
+    print('Pesos capa initail_to_node:')
+    for node in red.layers[1].nodes:
+        print('Pesos:',node.ws)
+        print('Umbral:',node.w0)
+
+    print('Pesos capa hidden_to_final:')
+    for node in red.layers[2].nodes:
+        print('Pesos:',node.ws)
+        print('Umbral:',node.w0)
 
     #training(inputs,expectedOutputs,0,1)
 
+
     print('Fin del entrenamiento')
 
-    rendimiento(inputs,expectedOutputs)
+    ls = [5.8, 2.8, 5.1, 2.4]
+
+    print(calcAandINiSOLVE(ls))
+
+    for _ in range(5):
+        random.shuffle(ls)
+        print(calcAandINiSOLVE(ls))
+
+    #rendimiento(inputs,expectedOutputs)
 
 
 
