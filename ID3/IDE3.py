@@ -1,14 +1,19 @@
-def loadInPuts():
-    lista = []
-    file = open("./ID3/DatosEntrada.txt",'r')
-    
-    for line in file:
-        line = line[:-1].split(',')
-        lista.append(list(float(num) for num in line))
+'''
+import ID3Utils
 
-    return lista
+id3 = ID3Utils.IDE3(dict(),[],None)
 
+data = ID3Utils.loadInputs()
+outs = ID3Utils.loadOutPutsSurvival()
 
-lista = [ls[22] for ls in loadInPuts()]
+id3.entrenamiento(data,outs)
 
-print(lista)
+print(id3.clasifica(data[0]))'''
+
+from sklearn.datasets import load_diabetes
+from sklearn.model_selection import cross_val_score
+from sklearn.tree import DecisionTreeRegressor
+X, y = load_diabetes(return_X_y=True)
+regressor = DecisionTreeRegressor(random_state=0)
+cross_val_score(regressor, X, y, cv=10)
+print(regressor.get_params())

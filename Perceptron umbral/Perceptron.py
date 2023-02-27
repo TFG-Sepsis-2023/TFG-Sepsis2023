@@ -13,7 +13,7 @@ class Clasificador_Perceptron_Umbral():
         self.w0 = random.uniform(-1,1)
         self.w = [random.uniform(-1,1) for _ in range(n_atributos)]
         
-        for n in range(n_epochs):
+        for _ in range(n_epochs):
             random.shuffle(Ejs_clas)
             for x,y in Ejs_clas:
                 o = salida_perceptron_umbral(self.w0,self.w,x)

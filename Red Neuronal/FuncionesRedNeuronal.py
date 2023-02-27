@@ -1,6 +1,5 @@
 ### IMPORTS
 
-import random, math
 from mpmath import mp
 
 
@@ -30,7 +29,7 @@ def softmax(l):
 ### DERIVADAS
 
 def DerivadaSigmoide(x):
-    return x*(1-x)
+    return sigmoide(x)*(1-sigmoide(x))
 
 def DerivadaRelu(x):
     return 1 if x>0 else 0

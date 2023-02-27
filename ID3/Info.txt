@@ -12,48 +12,19 @@ Algoritmo ID3:
         GANANCIA(D,A) = Entropía(D) - sum(|Dv|/|D|*Entropía(Dv))
 
 
-COLUMNAS DIVIDIDAS:
+COLUMNAS DIVIDIDAS: (Si es mayor que la media será 1 y en caso contrario 0)
 
-    EDADES: 0
-        <40)
-        [40-60)
-        [60-80)
-        [80<
-    
-    INITIAL PCT VALUE: 2
-        <50
-
-    RESPIRATION ARTERIAL: 13 
-        <50
-        50<100
-        100<
-    
-    RESPIRATION FRACTION: 14
-        <50
-        50<100
-        100<
-
-    PALTELETS: 15
-        <100
-        100<200
-        200<
-
-    BILIRRUBINA: 16
-        <1
-
-    GCS: 17 
-        <10
-
-    MAP: 18
-        <50)
-        50<
-
-    CREATINE: 20 
-        <1
-        1<2)
-        2<
-
-    SOFA: 22
-        <5
-        5<10
-        10>
+    age 61,31593
+    anatomical site of infection 2,840659
+    bilirubin 0,8697802
+    creatinine 1,959423
+    extent of infection 1,802198
+    Glasgow coma scale 13,4478
+    initial procalcitonin (PCT) 13,87909
+    length of stay (LOS) 8,615385
+    mean arterial pressure 79,67308
+    mean arterial pressure 2,324176
+    platelets 231,1566
+    respiration (PaO2) 93,85742
+    respiration (FiO2) 45,78571
+    urine output 24 hours 1,14011
