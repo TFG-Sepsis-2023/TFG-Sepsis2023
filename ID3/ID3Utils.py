@@ -55,8 +55,9 @@ class IDE3():
 
                 ganacy = ganacy - len(newData)/len(data) * self.enthropy(newData,newOuts)
 
-                ganancies.append([key,ganacy, newData, newOuts])
+            ganancies.append([key,ganacy])
         
+
         return max(ganancies, key= lambda x:x[1])
 
     def enthropy(self,data,outs):
@@ -69,7 +70,7 @@ class IDE3():
         if possitive==0 or negative==0: return 0
         elif possitive==negative: return 1
 
-        return -possitive/total * math.log(possitive/total,2) - negative/total * math.log(negative/total)
+        return -possitive/total * math.log(possitive/total,2) - negative/total * math.log(negative/total,2)
 
     def entrenamiento(self,data,outs):
 
@@ -77,7 +78,7 @@ class IDE3():
 
         best_initial = self.bestEnthropy(data,outs)
 
-        mainNode = Nodo(best_initial[0],best_initial[2],best_initial[3],None,[])
+        mainNode = Nodo(best_initial[0],data,outs,None,[])
 
         for key in self.dict[best_initial[0]]:
 
@@ -107,12 +108,12 @@ class IDE3():
         
         else:
 
-            bestAtribute,bestGanancy,bestData,bestOuts = self.bestEnthropy(data,outs)
+            bestAtribute,bestGanancy = self.bestEnthropy(data,outs)
 
-            newNode = Nodo(bestAtribute,bestData,bestOuts,padre,[],ent)
+            newNode = Nodo(bestAtribute,newData,newOuts,padre,[],ent)
 
             for key in self.dict[bestAtribute]:
-                self.calcNode(newNode,bestData,bestOuts,key)
+                self.calcNode(newNode,newData,newOuts,key)
 
             padre.hijos.append(newNode)
 
@@ -126,8 +127,16 @@ class IDE3():
         node = self.mainNode
         res = None
 
+        cont = 0
+
         while(True):
             
+            cont += 1
+
+            if cont==100:
+                raise ValueError(entry)
+                break
+
             atribute = node.atribute
             hijos = node.hijos
 
@@ -144,7 +153,6 @@ class IDE3():
                 break
 
             for i,value in option:
-                entrada = entry[atribute] 
                 if entry[atribute]==value: 
                     node = hijos[i]
                     break
@@ -152,7 +160,17 @@ class IDE3():
 
         return res
 
+    def rendimiento(self,data,outs):
 
+        ls = []
+        cont = 0
+        for dato,out in zip(data,outs):
+            try:
+                cont += self.clasifica(dato)==out
+            except:
+                ls.append(dato)
+
+        return ls
 
 
 def loadOutPutsVasopressors():
