@@ -1,27 +1,16 @@
 
-import ID3Utils, math
+import ID3Utils
 
 id3 = ID3Utils.IDE3(dict(),[],None)
 
 data = ID3Utils.loadInputs()[:200]
 outs = ID3Utils.loadOutPutsSurvival()[:200]
 
-data_test = ID3Utils.loadInputs()[200:]
-outs_test = ID3Utils.loadOutPutsSurvival()[200:]
-
-print(len(data_test))
-
 id3.entrenamiento(data,outs)
 
-print('FIN DE ENTRENAMIENTO')
+data_test,outs_test = id3.getConjuntoTest(100,'SURVIVAL')
 
-ls = id3.rendimiento(data_test,outs_test)
+porcen = id3.rendimiento(data_test,outs_test)
 
-for entry in ls:
-    index = data_test.index(entry)
-    data_test.remove(entry)
-    outs_test.remove(index)
+print('El porcentaje de acirto es:',porcen)
 
-
-
-print(len(data_test))

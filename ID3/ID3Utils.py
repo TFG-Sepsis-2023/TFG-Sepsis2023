@@ -127,6 +127,59 @@ class IDE3():
         node = self.mainNode
         res = None
 
+        while(True):
+
+            atribute = node.atribute
+            hijos = node.hijos
+
+            if atribute == None:
+                res = node.outs[0]
+                break
+
+            option = list(enumerate(self.dict[atribute]))
+
+            if len(hijos)==0:
+                res = node.outs[0]
+                break
+
+            for i,value in option:
+                if entry[atribute]==value: 
+                    node = hijos[i]
+                    break
+
+
+        return res
+
+    def rendimiento(self,data,outs):
+
+        return sum(out==self.clasifica(dato) for dato,out in zip(data,outs))/len(data)*100
+
+    def getConjuntoTest(self,num,type):
+
+        if type!='SURVIVAL' and type!='VASOPRESSORS':
+            return print('Los tipos válidos son SURVIVAL O VASOPRESSORS')
+
+        data = loadInputs()[-num:]
+        outs = None
+        if type=='SURVIVAL':
+            outs = loadOutPutsSurvival()[-num:]
+        else:
+            outs = loadOutPutsVasopressors()[-num:]
+
+        ls = self.rendimientoTest(data,outs)
+
+        for entry in ls:
+            index = data.index(entry)
+            data.remove(entry)
+            del outs[index]
+
+        return data,outs
+
+    def clasificaTest(self,entry):
+
+        node = self.mainNode
+        res = None
+
         cont = 0
 
         while(True):
@@ -135,7 +188,6 @@ class IDE3():
 
             if cont==100:
                 raise ValueError(entry)
-                break
 
             atribute = node.atribute
             hijos = node.hijos
@@ -160,18 +212,17 @@ class IDE3():
 
         return res
 
-    def rendimiento(self,data,outs):
+    def rendimientoTest(self,data,outs):
 
         ls = []
         cont = 0
         for dato,out in zip(data,outs):
             try:
-                cont += self.clasifica(dato)==out
+                cont += self.clasificaTest(dato)==out
             except:
                 ls.append(dato)
 
         return ls
-
 
 def loadOutPutsVasopressors():
 
