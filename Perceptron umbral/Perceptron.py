@@ -20,7 +20,7 @@ class Clasificador_Perceptron_Umbral():
                 for i in range(n_atributos):
                     self.w[i]+= tasa*(y-o)*x[i]
                 
-                self.w0 += tasa*(y-o) #Porque no existe un valor X0 y realmente es 1 por lo que da igual multiplicar
+                self.w0 += tasa*(y-o) 
                 
             
             

@@ -1,5 +1,4 @@
 import pandas as pd
-import RedNeural.FuncionesRedNeuronal as FuncionesRedNeuronal
 
 def main():
     
@@ -34,7 +33,7 @@ if __name__ == "__main__":
 
     ls = [71,2,0.07,2,1,1,1,2,2,2,1,2,1,236,100,224,0.3,15,110,0,0.7,1,2,5,1,8,2,6,1]
 
-    print(ls)
+    print(ls[22])
     # SOFA score 22
     # VASOPRESSOR 19
     # SURVIVAL 28
@@ -42,25 +41,16 @@ if __name__ == "__main__":
     vasopresosrs = []
     sofas = []
 
-    file = open('./datos/dataParsed.csv','w')
+    file = open('./outputs/sofaScore24OUTS.txt','w')
     with open('./datos/data.csv','r') as f:
 
         next(f)
         for line in f:
 
-            line = str(line).split(',')
-            line = [float(num) for num in line]
-
-            del line[28]
-            del line[22]
-            del line[19]
-
-            file.write(str(line)[1:-1]+"\n")
+            line = [float(num) for num in line.split(',')]
+            file.write(str(line[22])+"\n")
 
 
-
-    for i in vasopresosrs:
-        file.write(str(i)+'\n')
 
 
 

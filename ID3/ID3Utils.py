@@ -18,7 +18,7 @@ class IDE3():
     def __init__(self,dict,nodes, mainNode):
 
         self.dict = dict
-        self.nodes = nodes
+        self.nodes = nodes 
         self.mainNode = mainNode
  
     def calcValues(self,data):
@@ -122,8 +122,6 @@ class IDE3():
 
     def clasifica(self,entry):
 
-        # 1, 2.0, 0, 2.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 1.0, 2.0, 1.0, 1, 1, 1, 0, 1, 1, 0, 1.0, 0, 1.0, 8.0, 2.0, 6.0
-
         node = self.mainNode
         res = None
 
@@ -154,17 +152,10 @@ class IDE3():
 
         return sum(out==self.clasifica(dato) for dato,out in zip(data,outs))/len(data)*100
 
-    def getConjuntoTest(self,num,type):
+    def getConjuntoTest(self,num,data,outs):
 
-        if type!='SURVIVAL' and type!='VASOPRESSORS':
-            return print('Los tipos válidos son SURVIVAL O VASOPRESSORS')
-
-        data = loadInputs()[-num:]
-        outs = None
-        if type=='SURVIVAL':
-            outs = loadOutPutsSurvival()[-num:]
-        else:
-            outs = loadOutPutsVasopressors()[-num:]
+        data = data[-num:]
+        outs = outs[:-num]
 
         ls = self.rendimientoTest(data,outs)
 

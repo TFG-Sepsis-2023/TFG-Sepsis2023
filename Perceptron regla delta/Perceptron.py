@@ -19,9 +19,9 @@ class Clasificador_Perceptron_Regla_Delta():
             for x,y in Ejs_clas:
                 o = sigmoide(self.w0,self.w,x)
                 for i in range(n_atributos):
-                    self.w[i]+= tasa*(y-o)*x[i]*o*(1-o) # Incluida derivada sigmoide o*(1-o)
+                    self.w[i]+= tasa*(y-o)*x[i]*o*(1-o) 
                 
-                self.w0 += tasa*(y-o) #Porque no existe un valor X0 y realmente es 1 por lo que da igual multiplicar
+                self.w0 += tasa*(y-o) 
                 
             
             

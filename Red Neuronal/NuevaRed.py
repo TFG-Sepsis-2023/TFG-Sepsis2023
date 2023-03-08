@@ -37,6 +37,7 @@ class RedNeuronal():
         
         for _ in range(n_epochs):
             random.shuffle(Ejs_clas)
+            
             for x,y in Ejs_clas:
                 self.calculaA_Ini(x)
                 self.retroprop(y,tasa)
@@ -100,7 +101,7 @@ class RedNeuronal():
                     nodo.w0 += tasa*nodo.error 
                     
                     for nodof in nodos_final:
-                        nodof.w[hidden] += tasa*nodof.a*nodo.error
+                        nodof.w[hidden] += tasa*nodo.a*nodof.error
 
             elif i == 0:
 
@@ -111,7 +112,7 @@ class RedNeuronal():
                     nodo = nodos[initial]
                     
                     for nodoh in nodos_hidden:
-                        nodoh.w[initial] += tasa*nodoh.a*nodo.error
+                        nodoh.w[initial] += tasa*nodo.a*nodoh.error
 
     def solve(self,entry):
 
@@ -235,7 +236,6 @@ def loadInPuts():
     lista = []
     
     with open("./datos/dataParsed.csv",'r') as f:
-        next(f)
         for line in f:
             lista.append([float(num) for num in str(line)[:-1].split(',')])
 
@@ -247,6 +247,6 @@ def loadOutPutsSOFA():
     file = open("./outputs/sofaScore24OUTS.txt",'r')
     
     for line in file:
-        lista.append([int(num) for num in str(line)[:-1].split(',')])
+        lista.append(float(str(line)[:-1]))
 
     return lista
