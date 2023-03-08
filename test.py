@@ -31,24 +31,7 @@ def main():
 
 if __name__ == "__main__":
 
-    ls = [71,2,0.07,2,1,1,1,2,2,2,1,2,1,236,100,224,0.3,15,110,0,0.7,1,2,5,1,8,2,6,1]
-
-    print(ls[22])
-    # SOFA score 22
-    # VASOPRESSOR 19
-    # SURVIVAL 28
-
-    vasopresosrs = []
-    sofas = []
-
-    file = open('./outputs/sofaScore24OUTS.txt','w')
-    with open('./datos/data.csv','r') as f:
-
-        next(f)
-        for line in f:
-
-            line = [float(num) for num in line.split(',')]
-            file.write(str(line[22])+"\n")
+    print(int("6638",16))
 
 
 
