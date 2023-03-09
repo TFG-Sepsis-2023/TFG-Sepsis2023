@@ -4,42 +4,28 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import f_classif
 import numpy as np
+import Auxiliar
 
-### LECTURA DE DATOS
+def KNeighbors(n=5):
 
-def loadInPuts():
-    lista = []
-    
-    with open("./datos/dataParsed.csv",'r') as f:
-        for line in f:
-            lista.append([float(num) for num in str(line)[:-1].split(',')])
 
-    return lista
+    neigh = KNeighborsClassifier(n_neighbors=n,metric='minkowski')
+    neigh.fit(X_train_selected, y_train)
+    accuracy = neigh.score(X_test_selected, y_test)
 
-def loadOutPutsSOFA():
+    print('Accuracy=',accuracy)
 
-    lista = []
-    file = open("./outputs/sofaScore24OUTS.txt",'r')
-    
-    for line in file:
-        lista.append(float(str(line)[:-1]))
+    prob = sum(neigh.predict(np.array(dato).reshape(1,-1))[0]==salida for dato,salida in zip(datos,salidas))/len(datos)*100
 
-    return lista
+    best.append([prob,n])
 
-def loadOutPutsOutcome():
+    print("La tasa de acciertos del algoritmo Knn es",round(prob,3),"%")
 
-    lista = []
-    file = open("./outputs/outcome.txt",'r')
-    
-    for line in file:
-        lista.append(float(str(line)[:-1]))
-
-    return lista
 
 ### Knn
 
-datos = loadInPuts()
-salidas = loadOutPutsOutcome()
+datos = Auxiliar.loadInPuts()
+salidas = Auxiliar.loadOutPutsOutcome()
 scaler = StandardScaler()
 
 
@@ -59,31 +45,6 @@ X_train_selected = datos[:, selected_indices]
 X_train_selected, X_test_selected, y_train, y_test = train_test_split(X_train_selected, salidas, test_size=0.2, random_state=42)
 
 best = []
-
-def KNeighbors(n=5):
-
-
-    neigh = KNeighborsClassifier(n_neighbors=n,metric='minkowski')
-    neigh.fit(X_train_selected, y_train)
-    accuracy = neigh.score(X_test_selected, y_test)
-
-    print('Accuracy=',accuracy)
-
-    #prob = sum(neigh.predict(np.array(dato).reshape(1,-1))[0]==salida for dato,salida in zip(datos,salidas))/len(datos)*100
-    prob = 0
-    num = 300
-    for dato,salida in zip(X_train_selected[:num],y_train[:num]):
-        predict = neigh.predict(np.array(dato).reshape(1,-1))[0]
-        
-        prob += predict==salida
-
-
-    prob = prob / num * 100
-
-    best.append([prob,n])
-
-    print("La tasa de acciertos del algoritmo Knn es",round(prob,3),"%")
-
 
 for i in range(3,50,2):
     print("K=",i)
