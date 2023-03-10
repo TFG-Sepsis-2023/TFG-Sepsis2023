@@ -4,12 +4,11 @@ import random
 
 def loadInPuts():
     data = []
-    with open('./ID3/datosID3.csv','r') as f:
+    with open('./datos/dataNV.csv','r') as f:
         for line in f:
             data.append([float(num) for num in str(line).split(',')])
 
-    return data    
-
+    return data
 
 def loadOutPutsSurvival(fichero):
 

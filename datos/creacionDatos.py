@@ -56,7 +56,7 @@ def createDataID3():
 
 #Con esta función podemos crear el resultado final de cada dato parseado del 1 al 4
 
-def createDataID3():
+def createDataNV():
     
     file = open('./outputs/datosNV.txt','w')
 
@@ -72,6 +72,18 @@ def createDataID3():
                 else:
                     file.write(str(cont)+"\n")
                     break
-            
 
-createDataID3()
+def createDataNV2():
+    
+    file = open('./outputs/datosNVBinary.txt','w')
+    contador3=0
+    with open('./outputs/datosNV.txt','r') as f:
+
+        for line in f:
+            if(int(line) == 2 or int(line) == 3):
+                file.write(str(0)+"\n")
+            else:
+                file.write(str(1)+"\n")
+                       
+
+createDataNV2()

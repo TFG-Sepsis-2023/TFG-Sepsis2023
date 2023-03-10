@@ -7,8 +7,8 @@ n_datos_entrenamiento = [random.randint(50,360) for _ in range(10)]
 n_datos_test = [random.randint(100,360) for _ in range(10)]
 
 datas = ID3Utils.loadInputs()
-#outss = ID3Utils.loadOutPutsSurvival()
-outss = ID3Utils.loadOutPutsVasopressors()
+outss = ID3Utils.loadOutPutsSurvival2()
+#outss = ID3Utils.loadOutPutsVasopressors()
 
 best = []
 

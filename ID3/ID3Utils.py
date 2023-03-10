@@ -235,14 +235,24 @@ def loadOutPutsSurvival():
 
     return lista
 
+def loadOutPutsSurvival2():
+
+    lista = []
+    file = open("./outputs/survivalBinary2.txt",'r')
+    
+    for line in file:
+        lista.append(int(float(str(line)[:-1])))
+
+    return lista
+
 def createDataID3():
     
-    file = open('./ID3/datosID3.csv','w')
+    file = open('./datos/dataNV.csv','w')
 
-    with open('./datos/dataParsed.csv','r') as f:
+    with open('./datos/data2.csv','r') as f:
 
         for line in f:
-
+            print(line)
             lineWtirte = [float(num) for num in str(line).split(',')]
 
             # AGE
@@ -293,8 +303,10 @@ def loadInputs():
 
     data = []
 
-    with open('./ID3/datosID3.csv','r') as f:
+    with open('./datos/dataNV.csv','r') as f:
         for line in f:
             data.append([float(num) for num in str(line).split(',')])
 
     return data        
+
+createDataID3()
