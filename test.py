@@ -31,7 +31,18 @@ def main():
 
 if __name__ == "__main__":
 
-    print(int("6638",16))
+    file = open("./outputs/outcome.txt","w")
+
+    with open("./outputs/outcome4OUTPUTS.txt") as f:
+
+        for line in f:
+
+            line = [int(num) for num in str(line)[:-1].split(',')]
+            index = line.index(1)
+
+            file.write(str(index+1)+"\n")
+
+            
 
 
 

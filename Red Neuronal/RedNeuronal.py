@@ -2,12 +2,12 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.models import model_from_json
 from keras.utils import to_categorical
-import NuevaRed
+import Auxiliares
 import numpy as np
 
 # DATOS
-salidas = NuevaRed.loadOutPutsSOFA()
-entradas = NuevaRed.loadInPuts()
+salidas = Auxiliares.loadOutPutsSOFA()
+entradas = Auxiliares.loadInPuts()
 
 # Crear el modelo de la red neuronal
 model = Sequential()
