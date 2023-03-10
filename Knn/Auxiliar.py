@@ -9,6 +9,15 @@ def loadInPuts():
 
     return lista
 
+def loadInPuts2():
+    lista = []
+    
+    with open("./datos/data2.csv",'r') as f:
+        for line in f:
+            lista.append([float(num) for num in str(line)[:-1].split(',')])
+
+    return lista
+
 def loadOutPutsSOFA():
 
     lista = []
@@ -19,10 +28,11 @@ def loadOutPutsSOFA():
 
     return lista
 
-def loadOutPutsOutcome():
+
+def loadOutPutsOUTCOME():
 
     lista = []
-    file = open("./outputs/outcome.txt",'r')
+    file = open("./outputs/4OUTPUTS1.txt",'r')
     
     for line in file:
         lista.append(float(str(line)[:-1]))

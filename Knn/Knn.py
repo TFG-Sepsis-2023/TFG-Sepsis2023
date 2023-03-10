@@ -13,21 +13,14 @@ def KNeighbors(n=5):
     neigh.fit(X_train_selected, y_train)
     accuracy = neigh.score(X_test_selected, y_test)
 
-    print('Accuracy=',accuracy)
-
-    prob = sum(neigh.predict(np.array(dato).reshape(1,-1))[0]==salida for dato,salida in zip(datos,salidas))/len(datos)*100
-
-    best.append([prob,n])
-
-    print("La tasa de acciertos del algoritmo Knn es",round(prob,3),"%")
+    print('Accuracy=',accuracy*100)
 
 
 ### Knn
 
 datos = Auxiliar.loadInPuts()
-salidas = Auxiliar.loadOutPutsOutcome()
+salidas = Auxiliar.loadOutPutsSOFA()
 scaler = StandardScaler()
-
 
 datos = np.array(datos)
 salidas = np.array(salidas)
@@ -49,7 +42,3 @@ best = []
 for i in range(3,50,2):
     print("K=",i)
     KNeighbors(i)
-
-maximo = max(best, key=lambda x:x[0])
-
-print("La mejor tasa de aciertos es de "+str(maximo[0])+"% para k="+str(maximo[1]))

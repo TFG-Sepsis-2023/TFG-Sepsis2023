@@ -7,17 +7,19 @@ import numpy as np
 
 # DATOS
 salidas = Auxiliares.loadOutPutsSOFA()
+#salidas = Auxiliares.loadOutPutsOUTCOME()
 entradas = Auxiliares.loadInPuts()
+#entradas = Auxiliares.loadInPuts2()
 
 # Crear el modelo de la red neuronal
 model = Sequential()
-model.add(Dense(25, activation='relu', input_shape=(26,)))
+model.add(Dense(25, activation='relu', input_shape=(len(entradas[0]),)))
 model.add(Dense(24, activation='sigmoid'))
 
 # Normalizar la salida con la función softmax
 model.add(Dense(24, activation='softmax'))
 
-def trainModel():
+def trainModel(n_epochs):
     # Compilar el modelo
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
@@ -29,7 +31,7 @@ def trainModel():
     X_test = np.array(entradas[-50:])
 
     # Entrenar el modelo
-    model.fit(X_train, y_train, epochs=30000,batch_size=len(entradas), validation_data=(X_test, y_test))
+    model.fit(X_train, y_train, epochs=n_epochs,batch_size=len(entradas), validation_data=(X_test, y_test))
 
 def predict(entry):
 
@@ -64,8 +66,16 @@ def load_model():
     
     
 
-#trainModel()
+#trainModel(30000)
 #save_model()
-model = load_model()
+#model = load_model()
 
-print("El porcentaje de aciertos es",sum(predict(entry)==out for entry,out in zip(entradas,salidas))/len(entradas)*100)
+guardar = []
+
+for num in [1,20,50,100,500,1000,2000,5000,10000,20000,30000]:
+    trainModel(num)
+    porc = sum(predict(entry)==out for entry,out in zip(entradas,salidas))/len(entradas)*100
+    print("El porcentaje de aciertos es",porc)
+    guardar.append([num,porc])
+
+print(guardar) 
