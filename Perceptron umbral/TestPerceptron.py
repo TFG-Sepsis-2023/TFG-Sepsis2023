@@ -10,6 +10,8 @@ tasas = [random.uniform(0.001,0.1) for _ in range(5)]
 
 succesPercent = []
 
+file = open("./Perceptron umbral/salidas.txt","w")
+
 for epoch in epochs:
     print('---------------------------------------------------------')
     print('---------------------- Epochs: '+str(epoch)+' ------------------------')
@@ -18,14 +20,40 @@ for epoch in epochs:
         cpuv=Perceptron.Clasificador_Perceptron_Umbral()
         cpuv.entrena(datos,salidas,tasa=tasa,n_epochs=epoch)
 
-        percent = Perceptron.rendimiento(cpuv,datos,salidas)*100
+        tp,tn,fp,fn = Perceptron.rendimiento(cpuv,datos,salidas)
+        percent = (tp+tn)/(tp+tn+fp+fn)*100
+        try:
+            precision = tp/(tp+fp)*100
+        except ZeroDivisionError:
+            precision = 0
+        
+        try:
+            especificidad = tn / (tn+fp)*100
+        except ZeroDivisionError:
+            especificidad = 0
+
+        try:
+            sensibilidad = tp/(tp+fn)*100
+        except ZeroDivisionError:
+            sensibilidad = 0
+
         print('Tasa=',tasa)
-        print('El porcentaje de aciertos del perceptrón regla umbral es:',str(round(percent,4))+'%\n')
+        print('\n\tEl porcentaje de aciertos del perceptrón regla umbral es:',str(round(percent,4))+'%')
+        print("\tPrecision:",precision)
+        print("\tEspecificidad:",especificidad)
+        print("\tSensibilidad:",sensibilidad,"\n")
+        file.write(str(tasa)+"\n")
+        file.write(str(percent)+"\n")
+        file.write(str(precision)+"\n")
+        file.write(str(especificidad)+"\n")
+        file.write(str(sensibilidad)+"\n")
+        file.write("\n")
 
         succesPercent.append([percent,epoch,tasa])
 
 print('---------------------------------------------------------\n')
 
+file.close()
 succesPercent.reverse()
 best = max(succesPercent, key=lambda x:x[0])
 print('El mejor porcentaje de acierto es:',best[0],'con un número de epochs:',best[1],' y una tasa de aprendizaje de:',best[2])

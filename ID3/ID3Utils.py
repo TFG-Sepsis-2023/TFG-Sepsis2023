@@ -150,7 +150,28 @@ class IDE3():
 
     def rendimiento(self,data,outs):
 
-        return sum(out==self.clasifica(dato) for dato,out in zip(data,outs))/len(data)*100
+        tp = 0
+        tn = 0
+        fp = 0
+        fn = 0
+
+        for xi,yi in zip(data,outs):
+            
+            predict = self.clasifica(xi)
+            if yi == 1:
+
+                if predict==1:
+                    tp += 1
+                else:
+                    fn += 1
+                
+            else:
+                if predict==1:
+                    fp += 1
+                else:
+                    tn += 1
+
+        return tp,tn,fp,fn
 
     def getConjuntoTest(self,num,data,outs):
 
@@ -252,7 +273,6 @@ def createDataID3():
     with open('./datos/data2.csv','r') as f:
 
         for line in f:
-            print(line)
             lineWtirte = [float(num) for num in str(line).split(',')]
 
             # AGE

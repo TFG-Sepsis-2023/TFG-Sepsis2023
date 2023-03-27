@@ -2,14 +2,15 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.models import model_from_json
 from keras.utils import to_categorical
+from keras import metrics
 import Auxiliares
 import numpy as np
 
 # DATOS
-salidas = Auxiliares.loadOutPutsSOFA()
-#salidas = Auxiliares.loadOutPutsOUTCOME()
-entradas = Auxiliares.loadInPuts()
-#entradas = Auxiliares.loadInPuts2()
+#salidas = Auxiliares.loadOutPutsSOFA()
+salidas = Auxiliares.loadOutPutsOUTCOME()
+#entradas = Auxiliares.loadInPuts()
+entradas = Auxiliares.loadInPuts2()
 
 # Crear el modelo de la red neuronal
 model = Sequential()
@@ -17,25 +18,25 @@ model.add(Dense(25, activation='relu', input_shape=(len(entradas[0]),)))
 model.add(Dense(24, activation='sigmoid'))
 
 # Normalizar la salida con la función softmax
-model.add(Dense(24, activation='softmax'))
+model.add(Dense(5, activation='softmax'))
 
 def trainModel(n_epochs):
     # Compilar el modelo
-    model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+    model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=[metrics.Accuracy(),metrics.Precision(),metrics.SpecificityAtSensitivity(0.5)])
 
     # Codificar los datos de salida en una representación de un solo vector
 
-    y_train = to_categorical(salidas, 24)
-    y_test = to_categorical(salidas[-50:], 24)
+    y_train = to_categorical(salidas, 5)
+    y_test = to_categorical(salidas[-50:], 5)
     X_train = np.array(entradas)
     X_test = np.array(entradas[-50:])
 
     # Entrenar el modelo
-    model.fit(X_train, y_train, epochs=n_epochs,batch_size=len(entradas), validation_data=(X_test, y_test))
+    model.fit(X_train, y_train, epochs=n_epochs,batch_size=len(entradas), validation_data=(X_test, y_test),verbose=False)
 
 def predict(entry):
 
-    prediction = model.predict([entry])
+    prediction = model.predict([entry],verbose=False)
     predicted_category = np.argmax(prediction)
 
     #print(prediction)
@@ -77,5 +78,6 @@ for num in [1,20,50,100,500,1000,2000,5000,10000,20000,30000]:
     porc = sum(predict(entry)==out for entry,out in zip(entradas,salidas))/len(entradas)*100
     print("El porcentaje de aciertos es",porc)
     guardar.append([num,porc])
+    print(model.get_metrics_result())
 
 print(guardar) 

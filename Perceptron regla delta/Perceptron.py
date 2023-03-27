@@ -34,7 +34,29 @@ def sigmoide(w0,w,ej):
     return (1/(1+mp.exp(-x)))
 
 def rendimiento(clf,X,y):
-     return sum(yi==clf.clasifica(xi) for xi,yi in zip(X,y))/len(y)
+     
+    tp = 0
+    tn = 0
+    fp = 0
+    fn = 0
+
+    for xi,yi in zip(X,y):
+        
+        predict = clf.clasifica(xi)
+        if yi == 1:
+
+            if predict==1:
+                tp += 1
+            else:
+                fn += 1
+            
+        else:
+            if predict==1:
+                fp += 1
+            else:
+                tn += 1
+
+    return tp,tn,fp,fn
 
 def loadInPuts():
     lista = []

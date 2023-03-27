@@ -3,6 +3,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import f_classif
+from sklearn.metrics import classification_report
 import numpy as np
 import Auxiliar
 
@@ -13,13 +14,17 @@ def KNeighbors(n=5):
     neigh.fit(X_train_selected, y_train)
     accuracy = neigh.score(X_test_selected, y_test)
 
+    y_predict = neigh.predict(X_test_selected)
     print('Accuracy=',accuracy*100)
+    print(classification_report(y_test,y_predict))
 
 
 ### Knn
 
-datos = Auxiliar.loadInPuts()
-salidas = Auxiliar.loadOutPutsSOFA()
+#datos = Auxiliar.loadInPuts()
+datos = Auxiliar.loadInPuts2()
+#salidas = Auxiliar.loadOutPutsSOFA()
+salidas = Auxiliar.loadOutPutsOUTCOME()
 scaler = StandardScaler()
 
 datos = np.array(datos)
@@ -36,8 +41,6 @@ X_train_selected = datos[:, selected_indices]
 
 # Dividir los datos en entrenamiento y prueba
 X_train_selected, X_test_selected, y_train, y_test = train_test_split(X_train_selected, salidas, test_size=0.2, random_state=42)
-
-best = []
 
 for i in range(3,50,2):
     print("K=",i)

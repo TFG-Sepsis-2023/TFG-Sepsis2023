@@ -2,39 +2,54 @@ import Perceptron, random
 
 
 datos = Perceptron.loadInPuts()
-#salidas = Perceptron.loadOutPutsSurvival()
-salidas = Perceptron.loadOutPutsVasopressors()
+salidas = Perceptron.loadOutPutsSurvival()
+#salidas = Perceptron.loadOutPutsVasopressors()
 
 epochs = [5,10,20,30,40,50,60]
 tasas = [random.uniform(0.001,0.1) for _ in range(5)]
 
 succesPercent = []
 
+file = open("./Perceptron regla delta/salidas.txt","w")
+
 for epoch in epochs:
     print('---------------------------------------------------------')
     print('---------------------- Epochs: '+str(epoch)+' ------------------------')
     print('---------------------------------------------------------\n')
-
-    outs = []
-
     for tasa in tasas:
         cpuv=Perceptron.Clasificador_Perceptron_Regla_Delta()
         cpuv.entrena(datos,salidas,tasa=tasa,n_epochs=epoch)
 
-        '''while(True):
-            cons = input('Datos:')
-            cons = [float(i) for i in cons.split(',')]
-            print('Resultado:',cpuv.clasifica(cons))'''
+        tp,tn,fp,fn = Perceptron.rendimiento(cpuv,datos,salidas)
+        percent = (tp+tn)/(tp+tn+fp+fn)*100
+        try:
+            precision = tp/(tp+fp)*100
+        except ZeroDivisionError:
+            precision = 0
+        
+        try:
+            especificidad = tn / (tn+fp)*100
+        except ZeroDivisionError:
+            especificidad = 0
 
-        percent = Perceptron.rendimiento(cpuv,datos,salidas)*100
+        try:
+            sensibilidad = tp/(tp+fn)*100
+        except ZeroDivisionError:
+            sensibilidad = 0
+
         print('Tasa=',tasa)
-        print('El porcentaje de aciertos del perceptrón regla delta es:',str(round(percent,4))+'%\n')
+        print('\n\tEl porcentaje de aciertos del perceptrón regla delta es:',str(round(percent,4))+'%')
+        print("\tPrecision:",precision)
+        print("\tEspecificidad:",especificidad)
+        print("\tSensibilidad:",sensibilidad,"\n")
+        file.write(str(tasa)+"\n")
+        file.write(str(percent)+"\n")
+        file.write(str(precision)+"\n")
+        file.write(str(especificidad)+"\n")
+        file.write(str(sensibilidad)+"\n")
+        file.write("\n")
 
-        outs.append([percent,epoch,tasa])
-
-    succesPercent.append(max(outs,key=lambda x:x[0]))
-
-
+        succesPercent.append([percent,epoch,tasa])
 
 print('---------------------------------------------------------\n')
 
