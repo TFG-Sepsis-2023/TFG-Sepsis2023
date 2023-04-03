@@ -26,8 +26,8 @@ def trainModel(n_epochs):
 
     # Codificar los datos de salida en una representación de un solo vector
 
-    y_train = to_categorical(salidas, 5)
-    y_test = to_categorical(salidas[-50:], 5)
+    y_train = to_categorical(salidas, 5) # 5 para OUTCOME y 24 para SOFA   
+    y_test = to_categorical(salidas[-50:], 5) # 5 para OUTCOME y 24 para SOFA   
     X_train = np.array(entradas)
     X_test = np.array(entradas[-50:])
 
