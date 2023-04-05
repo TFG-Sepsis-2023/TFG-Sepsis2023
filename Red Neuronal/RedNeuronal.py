@@ -2,6 +2,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.models import model_from_json
 from keras.utils import to_categorical
+from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 from keras import metrics
 import Auxiliares
 import numpy as np
@@ -80,4 +81,4 @@ for num in [1,20,50,100,500,1000,2000,5000,10000,20000,30000]:
     guardar.append([num,porc])
     print(model.get_metrics_result())
 
-print(guardar) 
+print(guardar)

@@ -1,0 +1,364 @@
+SURVIVIAL
+--------------
+CONJUNTO DE TEST:0.2
+PRIO:0.2
+Tasa de aciertos: 0.8904109589041096
+Precisión: 0.953125
+Especificidad: 0.8904109589041096
+Sensibilidad: 0.9242424242424242
+
+
+PRIO:0.3
+Tasa de aciertos: 0.863013698630137
+Precisión: 0.9365079365079365
+Especificidad: 0.863013698630137
+Sensibilidad: 0.9076923076923077
+
+
+PRIO:0.5
+Tasa de aciertos: 0.8082191780821918
+Precisión: 0.9473684210526315
+Especificidad: 0.8082191780821918
+Sensibilidad: 0.8307692307692308
+
+
+PRIO:0.75
+Tasa de aciertos: 0.7671232876712328
+Precisión: 1.0
+Especificidad: 0.7671232876712328
+Sensibilidad: 0.746268656716418
+
+
+PRIO:0.9
+Tasa de aciertos: 0.5753424657534246
+Precisión: 0.9411764705882353
+Especificidad: 0.5753424657534246
+Sensibilidad: 0.5245901639344263
+
+
+CONJUNTO DE TEST:0.3
+PRIO:0.2
+Tasa de aciertos: 0.8909090909090909
+Precisión: 0.8952380952380953
+Especificidad: 0.8909090909090909
+Sensibilidad: 0.9894736842105263
+
+
+PRIO:0.3
+Tasa de aciertos: 0.8727272727272727
+Precisión: 0.9157894736842105
+Especificidad: 0.8727272727272727
+Sensibilidad: 0.9354838709677419
+
+
+PRIO:0.5
+Tasa de aciertos: 0.8454545454545455
+Precisión: 0.9230769230769231
+Especificidad: 0.8454545454545455
+Sensibilidad: 0.8936170212765957
+
+
+PRIO:0.75
+Tasa de aciertos: 0.7090909090909091
+Precisión: 1.0
+Especificidad: 0.7090909090909091
+Sensibilidad: 0.6631578947368421
+
+
+PRIO:0.9
+Tasa de aciertos: 0.5454545454545454
+Precisión: 0.9545454545454546
+Especificidad: 0.5454545454545454
+Sensibilidad: 0.4666666666666667
+
+
+CONJUNTO DE TEST:0.5
+PRIO:0.2
+Tasa de aciertos: 0.8571428571428571
+Precisión: 0.9074074074074074
+Especificidad: 0.8571428571428571
+Sensibilidad: 0.930379746835443
+
+
+PRIO:0.3
+Tasa de aciertos: 0.8516483516483516
+Precisión: 0.90625
+Especificidad: 0.8516483516483516
+Sensibilidad: 0.9235668789808917
+
+
+PRIO:0.5
+Tasa de aciertos: 0.8296703296703297
+Precisión: 0.9523809523809523
+Especificidad: 0.8296703296703297
+Sensibilidad: 0.8536585365853658
+
+
+PRIO:0.75
+Tasa de aciertos: 0.7197802197802198
+Precisión: 0.9568965517241379
+Especificidad: 0.7197802197802198
+Sensibilidad: 0.7070063694267515
+
+
+PRIO:0.9
+Tasa de aciertos: 0.5714285714285714
+Precisión: 0.9873417721518988
+Especificidad: 0.5714285714285714
+Sensibilidad: 0.5032258064516129
+
+
+CONJUNTO DE TEST:0.75
+PRIO:0.2
+Tasa de aciertos: 0.7985347985347986
+Precisión: 0.8554216867469879
+Especificidad: 0.7985347985347986
+Sensibilidad: 0.9181034482758621
+
+
+PRIO:0.3
+Tasa de aciertos: 0.8351648351648352
+Precisión: 0.9264069264069265
+Especificidad: 0.8351648351648352
+Sensibilidad: 0.8842975206611571
+
+
+PRIO:0.5
+Tasa de aciertos: 0.7948717948717948
+Precisión: 0.9027777777777778
+Especificidad: 0.7948717948717948
+Sensibilidad: 0.8478260869565217
+
+
+PRIO:0.75
+Tasa de aciertos: 0.7032967032967034
+Precisión: 0.9593023255813954
+Especificidad: 0.7032967032967034
+Sensibilidad: 0.6903765690376569
+
+
+PRIO:0.9
+Tasa de aciertos: 0.5128205128205128
+Precisión: 0.9636363636363636
+Especificidad: 0.5128205128205128
+Sensibilidad: 0.451063829787234
+
+
+CONJUNTO DE TEST:0.9
+PRIO:0.2
+Tasa de aciertos: 0.8597560975609756
+Precisión: 0.8842443729903537
+Especificidad: 0.8597560975609756
+Sensibilidad: 0.9649122807017544
+
+
+PRIO:0.3
+Tasa de aciertos: 0.8414634146341463
+Precisión: 0.924187725631769
+Especificidad: 0.8414634146341463
+Sensibilidad: 0.89198606271777
+
+
+PRIO:0.5
+Tasa de aciertos: 0.7560975609756098
+Precisión: 0.9183673469387755
+Especificidad: 0.7560975609756098
+Sensibilidad: 0.7894736842105263
+
+
+PRIO:0.75
+Tasa de aciertos: 0.5609756097560976
+Precisión: 0.9671052631578947
+Especificidad: 0.5609756097560976
+Sensibilidad: 0.513986013986014
+
+
+PRIO:0.9
+Tasa de aciertos: 0.7134146341463414
+Precisión: 0.9033613445378151
+Especificidad: 0.7134146341463414
+Sensibilidad: 0.7517482517482518
+
+
+VASOPRESORES
+--------------
+CONJUNTO DE TEST:0.2
+PRIO:0.2
+Tasa de aciertos: 0.1780821917808219
+Precisión: 0.1780821917808219
+Especificidad: 0.1780821917808219
+Sensibilidad: 1.0
+
+
+PRIO:0.3
+Tasa de aciertos: 0.3013698630136986
+Precisión: 0.21666666666666667
+Especificidad: 0.3013698630136986
+Sensibilidad: 0.7647058823529411
+
+
+PRIO:0.5
+Tasa de aciertos: 0.4794520547945205
+Precisión: 0.08823529411764706
+Especificidad: 0.4794520547945205
+Sensibilidad: 0.3
+
+
+PRIO:0.75
+Tasa de aciertos: 0.863013698630137
+Precisión: 0.0
+Especificidad: 0.863013698630137
+Sensibilidad: 0.0
+
+
+PRIO:0.9
+Tasa de aciertos: 0.821917808219178
+Precisión: 0.0
+Especificidad: 0.821917808219178
+Sensibilidad: 0.0
+
+
+CONJUNTO DE TEST:0.3
+PRIO:0.2
+Tasa de aciertos: 0.2
+Precisión: 0.2
+Especificidad: 0.2
+Sensibilidad: 1.0
+
+
+PRIO:0.3
+Tasa de aciertos: 0.20909090909090908
+Precisión: 0.15151515151515152
+Especificidad: 0.20909090909090908
+Sensibilidad: 0.8333333333333334
+
+
+PRIO:0.5
+Tasa de aciertos: 0.5363636363636364
+Precisión: 0.10256410256410256
+Especificidad: 0.5363636363636364
+Sensibilidad: 0.2
+
+
+PRIO:0.75
+Tasa de aciertos: 0.8181818181818182
+Precisión: 0.0
+Especificidad: 0.8181818181818182
+Sensibilidad: 0.0
+
+
+PRIO:0.9
+Tasa de aciertos: 0.8454545454545455
+Precisión: 0.0
+Especificidad: 0.8454545454545455
+Sensibilidad: 0.0
+
+
+CONJUNTO DE TEST:0.5
+PRIO:0.2
+Tasa de aciertos: 0.19230769230769232
+Precisión: 0.1797752808988764
+Especificidad: 0.19230769230769232
+Sensibilidad: 0.9696969696969697
+
+
+PRIO:0.3
+Tasa de aciertos: 0.19230769230769232
+Precisión: 0.1853932584269663
+Especificidad: 0.19230769230769232
+Sensibilidad: 0.9428571428571428
+
+
+PRIO:0.5
+Tasa de aciertos: 0.4230769230769231
+Precisión: 0.1588785046728972
+Especificidad: 0.4230769230769231
+Sensibilidad: 0.53125
+
+
+PRIO:0.75
+Tasa de aciertos: 0.7857142857142857
+Precisión: 0.125
+Especificidad: 0.7857142857142857
+Sensibilidad: 0.030303030303030304
+
+
+PRIO:0.9
+Tasa de aciertos: 0.7582417582417582
+Precisión: 0.0
+Especificidad: 0.7582417582417582
+Sensibilidad: 0.0
+
+
+CONJUNTO DE TEST:0.75
+PRIO:0.2
+Tasa de aciertos: 0.18681318681318682
+Precisión: 0.1634980988593156
+Especificidad: 0.18681318681318682
+Sensibilidad: 0.9555555555555556
+
+
+PRIO:0.3
+Tasa de aciertos: 0.3333333333333333
+Precisión: 0.1932367149758454
+Especificidad: 0.3333333333333333
+Sensibilidad: 0.7272727272727273
+
+
+PRIO:0.5
+Tasa de aciertos: 0.6336996336996337
+Precisión: 0.1527777777777778
+Especificidad: 0.6336996336996337
+Sensibilidad: 0.22
+
+
+PRIO:0.75
+Tasa de aciertos: 0.5347985347985348
+Precisión: 0.1592920353982301
+Especificidad: 0.5347985347985348
+Sensibilidad: 0.36
+
+
+PRIO:0.9
+Tasa de aciertos: 0.7619047619047619
+Precisión: 0.09090909090909091
+Especificidad: 0.7619047619047619
+Sensibilidad: 0.0425531914893617
+
+
+CONJUNTO DE TEST:0.9
+PRIO:0.2
+Tasa de aciertos: 0.3231707317073171
+Precisión: 0.1752988047808765
+Especificidad: 0.3231707317073171
+Sensibilidad: 0.7457627118644068
+
+
+PRIO:0.3
+Tasa de aciertos: 0.32621951219512196
+Precisión: 0.18359375
+Especificidad: 0.32621951219512196
+Sensibilidad: 0.7966101694915254
+
+
+PRIO:0.5
+Tasa de aciertos: 0.5121951219512195
+Precisión: 0.17218543046357615
+Especificidad: 0.5121951219512195
+Sensibilidad: 0.4262295081967213
+
+
+PRIO:0.75
+Tasa de aciertos: 0.6829268292682927
+Precisión: 0.16129032258064516
+Especificidad: 0.6829268292682927
+Sensibilidad: 0.16129032258064516
+
+
+PRIO:0.9
+Tasa de aciertos: 0.774390243902439
+Precisión: 0.06666666666666667
+Especificidad: 0.774390243902439
+Sensibilidad: 0.01639344262295082
+
+

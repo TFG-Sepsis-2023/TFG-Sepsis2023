@@ -1,0 +1,111 @@
+NUM TRAIN: 50
+NUM TEST: 50
+
+MAX_DEPTH: 1
+Tasa de aciertos: 0.94
+Precisión: 0.9375
+Especificidad: 0.94
+Sensibilidad: 1.0
+
+
+MAX_DEPTH: 2
+Tasa de aciertos: 0.92
+Precisión: 0.9555555555555556
+Especificidad: 0.92
+Sensibilidad: 0.9555555555555556
+
+
+NUM TRAIN: 50
+NUM TEST: 150
+
+MAX_DEPTH: 1
+Tasa de aciertos: 0.9666666666666667
+Precisión: 0.965034965034965
+Especificidad: 0.9666666666666667
+Sensibilidad: 1.0
+
+
+MAX_DEPTH: 2
+Tasa de aciertos: 0.9533333333333334
+Precisión: 0.9781021897810219
+Especificidad: 0.9533333333333334
+Sensibilidad: 0.9710144927536232
+
+
+NUM TRAIN: 50
+NUM TEST: 300
+
+MAX_DEPTH: 1
+Tasa de aciertos: 0.8933333333333333
+Precisión: 0.8888888888888888
+Especificidad: 0.8933333333333333
+Sensibilidad: 1.0
+
+
+MAX_DEPTH: 2
+Tasa de aciertos: 0.8866666666666667
+Precisión: 0.8992805755395683
+Especificidad: 0.8866666666666667
+Sensibilidad: 0.9765625
+
+
+NUM TRAIN: 150
+NUM TEST: 50
+
+MAX_DEPTH: 1
+Tasa de aciertos: 1.0
+Precisión: 1.0
+Especificidad: 1.0
+Sensibilidad: 1.0
+
+
+NUM TRAIN: 150
+NUM TEST: 150
+
+MAX_DEPTH: 1
+Tasa de aciertos: 1.0
+Precisión: 1.0
+Especificidad: 1.0
+Sensibilidad: 1.0
+
+
+NUM TRAIN: 150
+NUM TEST: 300
+
+MAX_DEPTH: 1
+Tasa de aciertos: 1.0
+Precisión: 1.0
+Especificidad: 1.0
+Sensibilidad: 1.0
+
+
+NUM TRAIN: 300
+NUM TEST: 50
+
+MAX_DEPTH: 1
+Tasa de aciertos: 1.0
+Precisión: 1.0
+Especificidad: 1.0
+Sensibilidad: 1.0
+
+
+NUM TRAIN: 300
+NUM TEST: 150
+
+MAX_DEPTH: 1
+Tasa de aciertos: 1.0
+Precisión: 1.0
+Especificidad: 1.0
+Sensibilidad: 1.0
+
+
+NUM TRAIN: 300
+NUM TEST: 300
+
+MAX_DEPTH: 1
+Tasa de aciertos: 1.0
+Precisión: 1.0
+Especificidad: 1.0
+Sensibilidad: 1.0
+
+
