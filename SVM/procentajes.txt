@@ -1,0 +1,290 @@
+--------------- SURVIVAL ---------------
+[+] Kernel Type:linear
+[+] Porcentaje de entrenamiento:0.1
+Tasa de aciertos: 0.918918918918919
+Precisión: 0.918918918918919
+Especificidad: 0.918918918918919
+Sensibilidad: 1.0
+
+
+[+] Porcentaje de entrenamiento:0.3
+Tasa de aciertos: 0.8636363636363636
+Precisión: 0.8636363636363636
+Especificidad: 0.8636363636363636
+Sensibilidad: 1.0
+
+
+[+] Porcentaje de entrenamiento:0.5
+Tasa de aciertos: 0.8681318681318682
+Precisión: 0.8681318681318682
+Especificidad: 0.8681318681318682
+Sensibilidad: 1.0
+
+
+[+] Porcentaje de entrenamiento:0.75
+Tasa de aciertos: 0.8644688644688645
+Precisión: 0.8644688644688645
+Especificidad: 0.8644688644688645
+Sensibilidad: 1.0
+
+
+[+] Porcentaje de entrenamiento:0.9
+Tasa de aciertos: 0.7835365853658537
+Precisión: 0.8715277777777778
+Especificidad: 0.7835365853658537
+Sensibilidad: 0.8807017543859649
+
+
+[+] Kernel Type:rbf
+[+] Porcentaje de entrenamiento:0.1
+Tasa de aciertos: 0.918918918918919
+Precisión: 0.918918918918919
+Especificidad: 0.918918918918919
+Sensibilidad: 1.0
+
+
+[+] Porcentaje de entrenamiento:0.3
+Tasa de aciertos: 0.8636363636363636
+Precisión: 0.8636363636363636
+Especificidad: 0.8636363636363636
+Sensibilidad: 1.0
+
+
+[+] Porcentaje de entrenamiento:0.5
+Tasa de aciertos: 0.8681318681318682
+Precisión: 0.8681318681318682
+Especificidad: 0.8681318681318682
+Sensibilidad: 1.0
+
+
+[+] Porcentaje de entrenamiento:0.75
+Tasa de aciertos: 0.8644688644688645
+Precisión: 0.8644688644688645
+Especificidad: 0.8644688644688645
+Sensibilidad: 1.0
+
+
+[+] Porcentaje de entrenamiento:0.9
+Tasa de aciertos: 0.8689024390243902
+Precisión: 0.8689024390243902
+Especificidad: 0.8689024390243902
+Sensibilidad: 1.0
+
+
+[+] Kernel Type:poly
+[+] Porcentaje de entrenamiento:0.1
+Tasa de aciertos: 0.8918918918918919
+Precisión: 0.9166666666666666
+Especificidad: 0.8918918918918919
+Sensibilidad: 0.9705882352941176
+
+
+[+] Porcentaje de entrenamiento:0.3
+Tasa de aciertos: 0.8545454545454545
+Precisión: 0.8623853211009175
+Especificidad: 0.8545454545454545
+Sensibilidad: 0.9894736842105263
+
+
+[+] Porcentaje de entrenamiento:0.5
+Tasa de aciertos: 0.8571428571428571
+Precisión: 0.8666666666666667
+Especificidad: 0.8571428571428571
+Sensibilidad: 0.9873417721518988
+
+
+[+] Porcentaje de entrenamiento:0.75
+Tasa de aciertos: 0.8717948717948718
+Precisión: 0.8708487084870848
+Especificidad: 0.8717948717948718
+Sensibilidad: 1.0
+
+
+[+] Porcentaje de entrenamiento:0.9
+Tasa de aciertos: 0.8628048780487805
+Precisión: 0.8703703703703703
+Especificidad: 0.8628048780487805
+Sensibilidad: 0.9894736842105263
+
+
+[+] Kernel Type:sigmoid
+[+] Porcentaje de entrenamiento:0.1
+Tasa de aciertos: 0.918918918918919
+Precisión: 0.918918918918919
+Especificidad: 0.918918918918919
+Sensibilidad: 1.0
+
+
+[+] Porcentaje de entrenamiento:0.3
+Tasa de aciertos: 0.8454545454545455
+Precisión: 0.8679245283018868
+Especificidad: 0.8454545454545455
+Sensibilidad: 0.968421052631579
+
+
+[+] Porcentaje de entrenamiento:0.5
+Tasa de aciertos: 0.8681318681318682
+Precisión: 0.8722222222222222
+Especificidad: 0.8681318681318682
+Sensibilidad: 0.9936708860759493
+
+
+[+] Porcentaje de entrenamiento:0.75
+Tasa de aciertos: 0.8644688644688645
+Precisión: 0.8644688644688645
+Especificidad: 0.8644688644688645
+Sensibilidad: 1.0
+
+
+[+] Porcentaje de entrenamiento:0.9
+Tasa de aciertos: 0.8689024390243902
+Precisión: 0.8689024390243902
+Especificidad: 0.8689024390243902
+Sensibilidad: 1.0
+
+
+--------------- VASOPRESSORS ---------------
+[+] Kernel Type:linear
+[+] Porcentaje de entrenamiento:0.1
+Tasa de aciertos: 0.8378378378378378
+Precisión: 0.0
+Especificidad: 0.8378378378378378
+Sensibilidad: 0.0
+
+
+[+] Porcentaje de entrenamiento:0.3
+Tasa de aciertos: 0.8181818181818182
+Precisión: 0.0
+Especificidad: 0.8181818181818182
+Sensibilidad: 0.0
+
+
+[+] Porcentaje de entrenamiento:0.5
+Tasa de aciertos: 0.7912087912087912
+Precisión: 0.0
+Especificidad: 0.7912087912087912
+Sensibilidad: 0.0
+
+
+[+] Porcentaje de entrenamiento:0.75
+Tasa de aciertos: 0.7838827838827839
+Precisión: 0.0
+Especificidad: 0.7838827838827839
+Sensibilidad: 0.0
+
+
+[+] Porcentaje de entrenamiento:0.9
+Tasa de aciertos: 0.7073170731707317
+Precisión: 0.13333333333333333
+Especificidad: 0.7073170731707317
+Sensibilidad: 0.09523809523809523
+
+
+[+] Kernel Type:rbf
+[+] Porcentaje de entrenamiento:0.1
+Tasa de aciertos: 0.8378378378378378
+Precisión: 0.0
+Especificidad: 0.8378378378378378
+Sensibilidad: 0.0
+
+
+[+] Porcentaje de entrenamiento:0.3
+Tasa de aciertos: 0.8181818181818182
+Precisión: 0.0
+Especificidad: 0.8181818181818182
+Sensibilidad: 0.0
+
+
+[+] Porcentaje de entrenamiento:0.5
+Tasa de aciertos: 0.7912087912087912
+Precisión: 0.0
+Especificidad: 0.7912087912087912
+Sensibilidad: 0.0
+
+
+[+] Porcentaje de entrenamiento:0.75
+Tasa de aciertos: 0.7912087912087912
+Precisión: 0.0
+Especificidad: 0.7912087912087912
+Sensibilidad: 0.0
+
+
+[+] Porcentaje de entrenamiento:0.9
+Tasa de aciertos: 0.8079268292682927
+Precisión: 0.0
+Especificidad: 0.8079268292682927
+Sensibilidad: 0.0
+
+
+[+] Kernel Type:poly
+[+] Porcentaje de entrenamiento:0.1
+Tasa de aciertos: 0.8378378378378378
+Precisión: 0.0
+Especificidad: 0.8378378378378378
+Sensibilidad: 0.0
+
+
+[+] Porcentaje de entrenamiento:0.3
+Tasa de aciertos: 0.8090909090909091
+Precisión: 0.0
+Especificidad: 0.8090909090909091
+Sensibilidad: 0.0
+
+
+[+] Porcentaje de entrenamiento:0.5
+Tasa de aciertos: 0.7802197802197802
+Precisión: 0.0
+Especificidad: 0.7802197802197802
+Sensibilidad: 0.0
+
+
+[+] Porcentaje de entrenamiento:0.75
+Tasa de aciertos: 0.7912087912087912
+Precisión: 0.0
+Especificidad: 0.7912087912087912
+Sensibilidad: 0.0
+
+
+[+] Porcentaje de entrenamiento:0.9
+Tasa de aciertos: 0.8079268292682927
+Precisión: 0.0
+Especificidad: 0.8079268292682927
+Sensibilidad: 0.0
+
+
+[+] Kernel Type:sigmoid
+[+] Porcentaje de entrenamiento:0.1
+Tasa de aciertos: 0.8108108108108109
+Precisión: 0.3333333333333333
+Especificidad: 0.8108108108108109
+Sensibilidad: 0.16666666666666666
+
+
+[+] Porcentaje de entrenamiento:0.3
+Tasa de aciertos: 0.7545454545454545
+Precisión: 0.23076923076923078
+Especificidad: 0.7545454545454545
+Sensibilidad: 0.15
+
+
+[+] Porcentaje de entrenamiento:0.5
+Tasa de aciertos: 0.7802197802197802
+Precisión: 0.3333333333333333
+Especificidad: 0.7802197802197802
+Sensibilidad: 0.05263157894736842
+
+
+[+] Porcentaje de entrenamiento:0.75
+Tasa de aciertos: 0.7912087912087912
+Precisión: 0.0
+Especificidad: 0.7912087912087912
+Sensibilidad: 0.0
+
+
+[+] Porcentaje de entrenamiento:0.9
+Tasa de aciertos: 0.8079268292682927
+Precisión: 0.0
+Especificidad: 0.8079268292682927
+Sensibilidad: 0.0
+
+
