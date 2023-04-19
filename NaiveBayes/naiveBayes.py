@@ -30,7 +30,6 @@ class NaiveBayes():
     def entrena(self,X,y):
 
         # Número de ejemplos y de atributos (o características)       
-
         n_ejemplos=len(X)
         self.n_atributos=len(X[0])
 
