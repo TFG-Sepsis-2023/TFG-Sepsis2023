@@ -13,18 +13,11 @@ X_train, X_test, y_train, y_test = train_test_split(datas, outss, test_size=0.2)
 best = []
 file = open("./ID3/salidas.txt","w")
 
-#for num in n_datos_entrenamiento:
-# data = datas[num:]
-# outs = outss[num:]
-
-# id3.entrenamiento(data,outs)
 id3.entrenamiento(X_train,y_train)
 
 print('----------- Datos de entrenamiento '+str(len(X_train))+' -------------\n')
 
-# for test in len(X_test):
-
-# data_test,outs_test = id3.getConjuntoTest(test,datas,outss)
+X_test,y_test = id3.getConjuntoTest(72,datas,outss)
 
 tp,tn,fp,fn  = id3.rendimiento(X_test,y_test)
 porcen = (tp+tn)/(tp+tn+fp+fn)

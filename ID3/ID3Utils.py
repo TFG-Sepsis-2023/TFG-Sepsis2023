@@ -128,7 +128,6 @@ class IDE3():
 
             atribute = node.atribute
             hijos = node.hijos
-            print(atribute, hijos)
             if atribute == None:
                 res = node.outs[0]
                 break
@@ -156,7 +155,6 @@ class IDE3():
         for xi,yi in zip(data,outs):
             
             predict = self.clasifica(xi)
-            print(predict)
             if yi == 1:
 
                 if predict==1:
@@ -175,7 +173,7 @@ class IDE3():
     def getConjuntoTest(self,num,data,outs):
 
         data = data[-num:]
-        outs = outs[:-num]
+        outs = outs[-num:]
 
         ls = self.rendimientoTest(data,outs)
 
