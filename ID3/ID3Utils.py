@@ -121,7 +121,6 @@ class IDE3():
 
 
     def clasifica(self,entry):
-
         node = self.mainNode
         res = None
 
@@ -129,7 +128,7 @@ class IDE3():
 
             atribute = node.atribute
             hijos = node.hijos
-
+            print(atribute, hijos)
             if atribute == None:
                 res = node.outs[0]
                 break
@@ -149,7 +148,6 @@ class IDE3():
         return res
 
     def rendimiento(self,data,outs):
-
         tp = 0
         tn = 0
         fp = 0
@@ -158,6 +156,7 @@ class IDE3():
         for xi,yi in zip(data,outs):
             
             predict = self.clasifica(xi)
+            print(predict)
             if yi == 1:
 
                 if predict==1:

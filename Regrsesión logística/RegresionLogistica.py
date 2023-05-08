@@ -9,7 +9,7 @@ from sklearn.metrics import accuracy_score
 
 dataframe = pd.read_csv('./datos/data.csv')
 
-X = np.array(dataframe.drop(['Vasopressors','SOFA score','Outcome'],1))
+X = np.array(dataframe.drop(labels=['Vasopressors','SOFA score'],axis=1))
 
 for value in ['Survival','Vasopressors','SOFA score']:
     print("\n\n---------------------------")
