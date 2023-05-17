@@ -2,6 +2,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.models import model_from_json
 from keras.utils import to_categorical
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 from keras import metrics
 import Auxiliares
@@ -12,6 +13,9 @@ import numpy as np
 salidas = Auxiliares.loadOutPutsOUTCOME()
 #entradas = Auxiliares.loadInPuts()
 entradas = Auxiliares.loadInPuts2()
+
+# dividir los datos en conjunto de entrenamiento y conjunto de prueba
+X_train_, X_test_, y_train_, y_test_ = train_test_split(entradas, salidas, test_size=0.2)
 
 # Crear el modelo de la red neuronal
 model = Sequential()
@@ -27,10 +31,10 @@ def trainModel(n_epochs):
 
     # Codificar los datos de salida en una representación de un solo vector
 
-    y_train = to_categorical(salidas, 5) # 5 para OUTCOME y 24 para SOFA   
-    y_test = to_categorical(salidas[-50:], 5) # 5 para OUTCOME y 24 para SOFA   
-    X_train = np.array(entradas)
-    X_test = np.array(entradas[-50:])
+    y_train = to_categorical(y_train_, 5) # 5 para OUTCOME y 24 para SOFA   
+    y_test = to_categorical(y_test_, 5) # 5 para OUTCOME y 24 para SOFA   
+    X_train = np.array(X_train_)
+    X_test = np.array(X_test_)
 
     # Entrenar el modelo
     model.fit(X_train, y_train, epochs=n_epochs,batch_size=len(entradas), validation_data=(X_test, y_test),verbose=False)

@@ -62,7 +62,6 @@ def loadInPuts():
     lista = []
     
     with open("./datos/dataParsed.csv",'r') as f:
-        next(f)
         for line in f:
             lista.append([float(num) for num in str(line)[:-1].split(',')])
 
