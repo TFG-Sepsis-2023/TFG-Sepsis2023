@@ -87,21 +87,3 @@ class NaiveBayes():
                     max_prob=acum_prod
                     max_clase=clase
             return max_clase,res_clases
-
-
-def divide_entrenamiento_prueba(X,y,prop_test=0.2):
-
-    # Escogemos los indices y los reordenamos de forma aleatoria para coger los "n" primeros que sean
-    indices=list(range(len(X)))
-    random.shuffle(indices)
-    n_ej_entr=len(X)-round(len(X)*prop_test)
-    # Seleccionamos los índices para el entrenamiento y el test
-    conj_entr=indices[:n_ej_entr]
-    conj_test=indices[n_ej_entr:]
-    # Creamos cada X_ y y_
-    X_entr=[X[i] for i in conj_entr]
-    y_entr=[y[i] for i in conj_entr]
-    X_test=[X[i] for i in conj_test]
-    y_test=[y[i] for i in conj_test]
-
-    return X_entr,y_entr,X_test,y_test

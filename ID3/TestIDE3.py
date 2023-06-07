@@ -53,6 +53,3 @@ best.append([porcen,len(X_train),len(X_train)])
 
 
 file.close()
-porcen,num_entr,num_test = max(best, key=lambda x:x[0])
-print('El mejor porcentaje de aciertos ha sido',porcen,'para un total de',num_entr,'datos de entrenamiento y',num_test,'datos de prueba')
-

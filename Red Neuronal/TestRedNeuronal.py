@@ -71,10 +71,12 @@ def load_model():
 
     
     
+'''
+Esta parte del código sería para cargar los modelos ya entrenados
 
-#trainModel(30000)
-#save_model()
-#model = load_model()
+save_model()
+model = load_model()
+'''
 
 guardar = []
 

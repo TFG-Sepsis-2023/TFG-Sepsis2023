@@ -12,7 +12,7 @@ from sklearn.model_selection import train_test_split
 entradas = Auxiliares.loadInputs()
 # salidas = Auxiliares.loadOutPutsSurvival2()
 salidas = Auxiliares.loadOutPutsVasopressors()
-# dividir los datos en conjunto de entrenamiento y conjunto de prueba
+# Dividir los datos en conjunto de entrenamiento y conjunto de prueba
 X_train_, X_test_, y_train_, y_test_ = train_test_split(entradas, salidas, test_size=0.2)
 
 # def trainModel(max_depth,num_train,num_test):
@@ -20,11 +20,6 @@ def trainModel(max_depth):
 
     # Definir parámetros del modelo
     param = {'max_depth': max_depth, 'eta': 0.1, 'objective': 'binary:logistic', 'eval_metric': 'error'}
-
-    # y_train = np.array(salidas[:num_train])
-    # y_test = np.array(salidas[-num_test:])
-    # X_train = np.array(entradas[:num_train])
-    # X_test = np.array(entradas[-num_test:])
 
     y_train = np.array(y_train_)
     y_test = np.array(y_test_)
@@ -85,20 +80,8 @@ recall_old = -1
 f1_old = -1
 succes_rate_old = -1
 
-# num_valores = 3
-
-# nums_train = [random.randint(50,300) for _ in range(num_valores)]
-# nums_test = [random.randint(50,300) for _ in range(num_valores)]
-
-# nums_train = [50,150,300]
-# nums_test = [50,150,300]
-
-
-# for num_train in nums_train:
-
 print("DATOS DE ENTRENAMIENTO:",len(X_train_))
 
-    # for num_test in nums_test:
 
 print("DATOS DE TEST:",len(X_test_))
 file.write("NUM TRAIN: "+ str(len(X_train_))+"\n")
@@ -130,20 +113,4 @@ succes_rate_old = -1
 
 file.close()
 
-'''
-PARA REALIZAR UNA PREDICCIÓN DE UNA NUEVA ENTRADA HACEMOS LO SIGUIENTE
-
-def getPredict(entry):
-
-    entrada = [float(num) for num in entry.split(", ")]
-    entrada = np.array(entrada)
-
-    dtest = xgb.DMatrix(entrada)
-    
-    return bst.predict(dtest)
-
-
-
-'''
-    
     

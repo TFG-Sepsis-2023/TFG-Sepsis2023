@@ -5,7 +5,7 @@ datos = Perceptron.loadInPuts()
 salidas = Perceptron.loadOutPutsSurvival()
 #salidas = Perceptron.loadOutPutsVasopressors()
 
-# dividir los datos en conjunto de entrenamiento y conjunto de prueba
+# Dividir los datos en conjunto de entrenamiento y conjunto de prueba
 X_train, X_test, y_train, y_test = train_test_split(datos, salidas, test_size=0.2)
 epochs = [5,10,20,30,40,50,60]
 tasas = [random.uniform(0.001,0.1) for _ in range(5)]
@@ -54,7 +54,3 @@ for epoch in epochs:
         succesPercent.append([percent,epoch,tasa])
 
 print('---------------------------------------------------------\n')
-
-succesPercent.reverse()
-best = max(succesPercent, key=lambda x:x[0])
-print('El mejor porcentaje de acierto es:',best[0],'con un número de epochs:',best[1],' y una tasa de aprendizaje de:',best[2])

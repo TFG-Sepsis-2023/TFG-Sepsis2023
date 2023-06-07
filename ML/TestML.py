@@ -7,8 +7,6 @@ import numpy as np
 # DATOS
 
 entradas = Auxiliares.loadInputs()
-#salidas = Auxiliares.loadOutPutsSurvival2()
-#salidas = Auxiliares.loadOutPutsVasopressors()
 
 def train(size_test=0.2, prio=0.2):
 

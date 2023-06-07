@@ -18,13 +18,13 @@ def print_metrics(accuracy,precision,recall,succes_rate):
 
 
 
-def train(entradas,salidas,kernel_type,train_value):
+def train(entradas,salidas,kernel_type,test_value):
 
     X = np.array(entradas)
     y = np.array(salidas)
 
     # Dividir el conjunto de datos en entrenamiento y prueba
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=train_value, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_value, random_state=42)
 
     # Crear un clasificador SVM
     clf = svm.SVC(kernel=kernel_type)
@@ -54,7 +54,7 @@ salidas_vasopressors = Auxiliares.loadOutPutsVasopressors()
 
 
 kernel_types = ['linear','rbf','poly','sigmoid']
-train_values = [0.1,0.3,0.5,0.75,0.9]
+test_values = [0.1,0.3,0.5,0.75,0.9]
 
 file.write("--------------- SURVIVAL ---------------\n")
 for k_type in kernel_types:
@@ -62,11 +62,11 @@ for k_type in kernel_types:
     print("----------------------------")
     print("[+] Kernel Type:",k_type)
     file.write("[+] Kernel Type:"+str(k_type)+"\n")
-    for train_value in train_values:
+    for test_value in test_values:
 
-        print("[+] Porcentaje de entrenamiento:",train_value)
-        file.write("[+] Porcentaje de entrenamiento:"+str(train_value)+"\n")
-        train(entradas,salidas_survival,k_type,train_value)
+        print("[+] Porcentaje de test:",test_value)
+        file.write("[+] Porcentaje de test:"+str(test_value)+"\n")
+        train(entradas,salidas_survival,k_type,test_value)
         print("\n")
 
 file.write("--------------- VASOPRESSORS ---------------\n")
@@ -75,9 +75,9 @@ for k_type in kernel_types:
     print("----------------------------")
     print("[+] Kernel Type:",k_type)
     file.write("[+] Kernel Type:"+str(k_type)+"\n")
-    for train_value in train_values:
+    for test_value in test_values:
 
-        print("[+] Porcentaje de entrenamiento:",train_value)
-        file.write("[+] Porcentaje de entrenamiento:"+str(train_value)+"\n")
-        train(entradas,salidas_vasopressors,k_type,train_value)
+        print("[+] Porcentaje de test:",test_value)
+        file.write("[+] Porcentaje de test:"+str(test_value)+"\n")
+        train(entradas,salidas_vasopressors,k_type,test_value)
         print("\n")

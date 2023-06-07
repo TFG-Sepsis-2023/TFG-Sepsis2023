@@ -62,7 +62,6 @@ class IDE3():
 
     def enthropy(self,data,outs):
 
-
         possitive = sum(sol==1 for _,sol in zip(data,outs))
         negative = sum(sol==0 for _,sol in zip(data,outs))
         total = len(data)
